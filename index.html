@@ -335,7 +335,7 @@
   .pdf-modal-title{flex:1;font-size:14px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .pdf-modal-close{background:none;border:none;font-size:22px;color:var(--text-mid);cursor:pointer;padding:2px 6px;line-height:1}
   .pdf-modal-body{flex:1;overflow:hidden;position:relative}
-  .pdf-modal-body canvas{max-width:100%;height:auto!important}
+  .pdf-modal-body iframe{width:100%;height:100%;border:none}
   .pdf-modal-nav{background:var(--bg2);padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:16px;border-top:1px solid var(--border);flex-shrink:0}
   .pdf-nav-btn{background:var(--sage-pale);border:1px solid var(--border);border-radius:8px;padding:8px 18px;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;color:var(--sage-dim);cursor:pointer;transition:all .2s}
   .pdf-nav-btn:hover{background:var(--sage);color:#fff;border-color:var(--sage)}
@@ -2539,11 +2539,8 @@
     <button class="pdf-modal-close" onclick="closeEbook()">✕</button>
     <div class="pdf-modal-title" id="pdfModalTitle">Membaca...</div>
   </div>
-  <div class="pdf-modal-body" style="overflow-y:auto;-webkit-overflow-scrolling:touch">
-    <div id="pdfCanvasContainer" style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:12px 8px;min-height:100%">
-      <canvas id="pdfCanvas" style="max-width:100%;box-shadow:0 2px 12px rgba(0,0,0,.3);border-radius:4px"></canvas>
-      <div id="pdfLoadingMsg" style="color:#fff;font-size:14px;padding:40px;text-align:center">⏳ Memuat PDF...</div>
-    </div>
+  <div class="pdf-modal-body">
+    <iframe id="pdfFrame" src="" allowfullscreen></iframe>
   </div>
   <div class="pdf-modal-nav">
     <button class="pdf-nav-btn" onclick="prevPage()">← Sebelumnya</button>
@@ -2801,17 +2798,6 @@
   });
 
   // ── Ebook PDF Viewer ──
-  // ── Load PDF.js ──
-  (function(){
-    const s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
-    s.onload = function(){
-      pdfjsLib.GlobalWorkerOptions.workerSrc =
-        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    };
-    document.head.appendChild(s);
-  })();
-
   const ebookFiles = {
     'doa-arafah':   { title: 'Doa Arafah', file: 'Doa_arafah_20260402_135953_0000.pdf', pages: 20 },
     'manasik':      { title: 'Manasik Jiwa — 40 Hari Belajar Tahajud', file: 'Manasik_Jiwa_Part_5_20260402_140024_0000.pdf', pages: 47 },
@@ -2821,13 +2807,6 @@
   };
   let currentPage = 1;
   let currentEbook = null;
-  let pdfDoc = null;
-  let pdfRendering = false;
-
-  function getPdfUrl(filename){
-    // Selalu dari root domain — cocok untuk Vercel/Netlify
-    return window.location.origin + '/' + filename;
-  }
 
   function openEbook(key){
     const eb = ebookFiles[key];
@@ -2835,85 +2814,41 @@
     currentEbook = eb;
     currentPage = 1;
     document.getElementById('pdfModalTitle').textContent = eb.title;
+    updatePdfFrame();
     document.getElementById('pdfModal').classList.add('open');
     document.body.style.overflow = 'hidden';
-    loadPdfDoc(eb.file);
   }
 
-  function loadPdfDoc(filename){
-    if(typeof pdfjsLib === 'undefined'){
-      document.getElementById('pdfLoadingMsg').textContent = '⚠️ PDF viewer belum siap, coba lagi...';
-      document.getElementById('pdfLoadingMsg').style.display = 'block';
-      setTimeout(()=>loadPdfDoc(filename), 1500);
-      return;
-    }
-    const url = getPdfUrl(filename);
-    document.getElementById('pdfLoadingMsg').style.display = 'block';
-    document.getElementById('pdfLoadingMsg').textContent = '⏳ Memuat PDF...';
-    document.getElementById('pdfCanvas').style.display = 'none';
+  function updatePdfFrame(){
+    if(!currentEbook) return;
+    // Coba beberapa path: root-relative, same-dir, dan origin-relative
+    // Gunakan origin agar bisa diakses dari mana pun file HTML diletakkan
+    const origin = window.location.origin;
+    const pathname = window.location.pathname;
+    const dir = pathname.substring(0, pathname.lastIndexOf('/') + 1);
 
-    pdfjsLib.getDocument(url).promise.then(function(doc){
-      pdfDoc = doc;
-      // Update total pages from actual PDF
-      if(currentEbook) currentEbook.pages = doc.numPages;
-      renderPage(currentPage);
-    }).catch(function(err){
-      document.getElementById('pdfLoadingMsg').textContent =
-        '❌ Gagal memuat PDF.
-Pastikan file ada di folder yang sama dengan labbaik.html
+    // Prioritas: coba root dulu (untuk Vercel/Netlify deployment di root)
+    // Jika file HTML ada di subfolder, ini akan fallback ke direktori yang sama
+    const isRoot = dir === '/' || dir === '';
+    const base = isRoot ? origin + '/' : origin + dir;
+    const url = base + currentEbook.file + '#page=' + currentPage;
 
-' + err.message;
-    });
-  }
-
-  function renderPage(num){
-    if(!pdfDoc || pdfRendering) return;
-    pdfRendering = true;
-    pdfDoc.getPage(num).then(function(page){
-      const container = document.getElementById('pdfCanvasContainer');
-      const maxWidth = Math.min(container.clientWidth - 16, 600);
-      const viewport = page.getViewport({scale: 1});
-      const scale = maxWidth / viewport.width;
-      const scaledViewport = page.getViewport({scale});
-
-      const canvas = document.getElementById('pdfCanvas');
-      const ctx = canvas.getContext('2d');
-      canvas.width = scaledViewport.width;
-      canvas.height = scaledViewport.height;
-
-      page.render({canvasContext: ctx, viewport: scaledViewport}).promise.then(function(){
-        pdfRendering = false;
-        canvas.style.display = 'block';
-        document.getElementById('pdfLoadingMsg').style.display = 'none';
-        document.getElementById('pdfPageInfo').textContent =
-          'Hal ' + num + ' / ' + pdfDoc.numPages;
-        // Scroll to top
-        document.getElementById('pdfCanvasContainer').parentElement.scrollTop = 0;
-      });
-    });
+    document.getElementById('pdfFrame').src = url;
+    document.getElementById('pdfPageInfo').textContent = 'Hal ' + currentPage + ' / ' + currentEbook.pages;
   }
 
   function closeEbook(){
     document.getElementById('pdfModal').classList.remove('open');
+    document.getElementById('pdfFrame').src = '';
     document.body.style.overflow = '';
     currentEbook = null;
-    pdfDoc = null;
-    const canvas = document.getElementById('pdfCanvas');
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 
   function nextPage(){
-    if(pdfDoc && currentPage < pdfDoc.numPages){
-      currentPage++;
-      renderPage(currentPage);
-    }
+    if(currentEbook && currentPage < currentEbook.pages){ currentPage++; updatePdfFrame(); }
   }
   function prevPage(){
-    if(pdfDoc && currentPage > 1){
-      currentPage--;
-      renderPage(currentPage);
-    }
+    if(currentEbook && currentPage > 1){ currentPage--; updatePdfFrame(); }
   }
 </script>
 
