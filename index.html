@@ -2159,31 +2159,22 @@
       <span>🕋 FREE VERSION — Konten penuh tersedia</span>
       <span class="crown">👑</span>
     </div>
-    <div class="ebook-cover-wrap">
+    <div class="ebook-cover-wrap" onclick="openEbook('manasik-haji')">
       <div style="width:100%;height:220px;background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#1a5276);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;overflow:hidden">
         <div style="position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><circle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22rgba(255,255,255,0.15)%22/></svg>') repeat;opacity:.5"></div>
         <div style="font-size:44px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))">🤿</div>
         <div style="color:#fff;font-size:17px;font-weight:800;text-align:center;line-height:1.2;text-shadow:0 1px 4px rgba(0,0,0,.4)">MANASIK JIWA<br>BERHAJI</div>
         <div style="color:rgba(255,255,255,.85);font-size:11px;font-weight:500;font-style:italic">Menyelami Makna di Balik Ritual</div>
-        <div style="background:rgba(200,168,75,.95);color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:999px;margin-top:2px;box-shadow:0 2px 8px rgba(0,0,0,.2)">FREE VERSION — 11 hal preview</div>
-      </div>
-      <div class="ebook-lock-overlay">
-        <span class="ebook-cover-pages">Preview gratis</span>
-        <span class="ebook-lock-badge">🔓 Baca Preview</span>
+        <div style="background:rgba(200,168,75,.95);color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:999px;margin-top:2px;box-shadow:0 2px 8px rgba(0,0,0,.2)">GRATIS — 44 halaman penuh</div>
       </div>
     </div>
     <div class="ebook-info">
-      <div class="ebook-title">Manasik Jiwa Haji</div>
+      <div class="ebook-title">Manasik Jiwa Berhaji</div>
       <div class="ebook-author">✍️ dr. Rifqie · @dokrifqi</div>
-      <div class="ebook-desc">Menyelami makna di balik ritual haji — dari makna Ihram sebagai kain kafan, 6 Rukun Haji, Tarwiyah, hingga Wukuf di Arafah. <strong>44 halaman</strong> infografis visual penuh makna. Preview 11 hal gratis! 🤿</div>
-      <div class="ebook-actions" style="flex-direction:column;gap:8px">
-        <div style="display:flex;gap:8px">
-          <button class="ebook-read-btn" style="flex:1" onclick="openEbook('manasik-haji')">📖 Baca Preview</button>
-          <div class="ebook-preview-badge">FREE</div>
-        </div>
-        <a class="ebook-full-btn" href="https://lynk.id/dokterrifqi" target="_blank">
-          👑 Akses Versi LENGKAP di Lynk →
-        </a>
+      <div class="ebook-desc">Menyelami makna di balik ritual haji — dari makna Ihram, 6 Rukun Haji, Tarwiyah, hingga Wukuf di Arafah. <strong>44 halaman</strong> infografis visual penuh makna. Gratis! 🤿</div>
+      <div class="ebook-actions">
+        <button class="ebook-read-btn" style="flex:1" onclick="openEbook('manasik-haji')">📖 Baca Sekarang</button>
+        <div class="ebook-free-badge">GRATIS</div>
       </div>
     </div>
   </div>
@@ -2812,7 +2803,7 @@
     'manasik':      { title: 'Manasik Jiwa — 40 Hari Belajar Tahajud', file: 'Manasik_Jiwa_Part_5_20260402_140024_0000.pdf', pages: 47 },
     'qiyam':        { title: 'Rangkuman Doa Qiyamullail', file: 'Rangkuman_Doa_Qiyamullail_20260402_140108_0000.pdf', pages: 12 },
     'atlas':        { title: 'Atlas Perjalanan Haji 2026 (FREE VERSION)', file: 'FREE_version__Atlas_Perjalanan_Haji_2026__CERITA_HAJI_DR_20260402_142051_0000.pdf', pages: 20 },
-    'manasik-haji': { title: 'Manasik Jiwa Berhaji — Preview', file: 'ManasikJiwa_Haji_20260402_141744_0000.pdf', pages: 11 },
+    'manasik-haji': { title: 'Manasik Jiwa Berhaji — Full Preview', file: 'ManasikJiwa_Haji_20260402_141744_0000.pdf', pages: 44 },
   };
   let currentPage = 1;
   let currentEbook = null;
@@ -2830,8 +2821,18 @@
 
   function updatePdfFrame(){
     if(!currentEbook) return;
-    const base = window.location.href.replace(/[^/]*$/, '');
+    // Coba beberapa path: root-relative, same-dir, dan origin-relative
+    // Gunakan origin agar bisa diakses dari mana pun file HTML diletakkan
+    const origin = window.location.origin;
+    const pathname = window.location.pathname;
+    const dir = pathname.substring(0, pathname.lastIndexOf('/') + 1);
+
+    // Prioritas: coba root dulu (untuk Vercel/Netlify deployment di root)
+    // Jika file HTML ada di subfolder, ini akan fallback ke direktori yang sama
+    const isRoot = dir === '/' || dir === '';
+    const base = isRoot ? origin + '/' : origin + dir;
     const url = base + currentEbook.file + '#page=' + currentPage;
+
     document.getElementById('pdfFrame').src = url;
     document.getElementById('pdfPageInfo').textContent = 'Hal ' + currentPage + ' / ' + currentEbook.pages;
   }
