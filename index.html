@@ -124,6 +124,13 @@
   body.dark-mode .support-box { background:linear-gradient(135deg,#1a2e1a,#1e2a1e); border-color:var(--border); }
   body.dark-mode .support-box h3 { color:var(--sage-light); }
   body.dark-mode .support-box p { color:var(--text-mid); }
+  body.dark-mode .ziarah-city-card { background:var(--bg2); border-color:var(--border); }
+  body.dark-mode .ziarah-place { background:var(--bg); border-color:var(--border); }
+  body.dark-mode .ziarah-city-title, body.dark-mode .ziarah-place-title { color:var(--text); }
+  body.dark-mode .ziarah-city-sub, body.dark-mode .ziarah-copy { color:var(--text-mid); }
+  body.dark-mode .ziarah-chip { background:var(--sage-pale); color:var(--sage-light); border-color:var(--border); }
+  body.dark-mode .ziarah-city-note, body.dark-mode .ziarah-history { color:var(--text-light); border-color:var(--border); }
+  body.dark-mode .ziarah-image { background:var(--bg); border-color:var(--border); }
   body.dark-mode .cl-prog-track { background:var(--border); }
   body.dark-mode .section-title { color:var(--text); }
   body.dark-mode .ph { background:var(--sage-pale); color:var(--sage-light); }
@@ -200,6 +207,7 @@
 
   /* Empty state */
   .empty{text-align:center;padding:48px 24px;color:var(--text-light);font-size:14px;display:none}
+  #page-doa:not(.list-mode) .doa-card[data-cat]{display:none}
 
   /* ── Bottom Nav ── */
   .bnav{position:sticky;top:0;left:0;right:0;z-index:200;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;justify-content:space-around;padding:8px 0;box-shadow:0 2px 12px rgba(0,0,0,.06)}
@@ -255,6 +263,77 @@
   .sp-page-header h2{font-size:20px;font-weight:700;color:var(--text)}
   .sp-page-header p{font-size:13px;color:var(--text-light);margin-top:6px;line-height:1.6}
 
+  .ibadah-section{position:relative;z-index:10;max-width:600px;margin:0 auto;padding:16px 16px 0}
+  .ibadah-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--sage);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .ibadah-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+  .ibadah-note{font-size:12px;color:var(--text-light);line-height:1.6;margin-top:6px}
+  .dzikir-stack{display:flex;flex-direction:column;gap:10px}
+  .dzikir-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  .dzikir-card summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:all .2s}
+  .dzikir-card summary::-webkit-details-marker{display:none}
+  .dzikir-card[open] summary{background:var(--sage-pale);border-bottom:1px solid var(--border)}
+  .dzikir-head{display:flex;align-items:center;gap:10px;min-width:0}
+  .dzikir-ico{width:38px;height:38px;border-radius:12px;background:rgba(107,143,113,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .dzikir-title{font-size:14px;font-weight:800;color:var(--text)}
+  .dzikir-sub{font-size:11.5px;color:var(--text-light);margin-top:2px;line-height:1.45}
+  .dzikir-chevron{font-size:18px;color:var(--sage-light);transition:transform .2s}
+  .dzikir-card[open] .dzikir-chevron{transform:rotate(90deg)}
+  .dzikir-body{padding:14px 16px 16px}
+  .dzikir-list{display:flex;flex-direction:column;gap:10px}
+  .dzikir-item{border:1px solid var(--border);border-radius:12px;padding:11px 12px;background:var(--bg);display:flex;flex-direction:column;gap:5px}
+  .dzikir-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sage)}
+  .dzikir-text{font-size:13px;line-height:1.65;color:var(--text)}
+  .dzikir-ar{direction:rtl;text-align:right;font-family:'Amiri',serif;font-size:15px;line-height:1.9;color:var(--text)}
+  .dzikir-note{font-size:11.5px;color:var(--text-light);line-height:1.55}
+  .quran-entry{background:linear-gradient(135deg,var(--bg2),var(--sage-pale));border:1.5px solid var(--border);border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 6px rgba(0,0,0,.05);cursor:pointer;transition:all .2s}
+  .quran-entry:hover,.quran-entry:active{border-color:var(--sage-light);box-shadow:0 4px 14px rgba(107,143,113,.12);transform:translateY(-1px)}
+  .quran-entry-ico{width:52px;height:52px;border-radius:14px;background:rgba(107,143,113,.12);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+  .quran-entry-info{flex:1;min-width:0}
+  .quran-entry-title{font-size:15px;font-weight:800;color:var(--text)}
+  .quran-entry-sub{font-size:12px;color:var(--text-light);margin-top:3px;line-height:1.5}
+  .quran-entry-arrow{font-size:18px;color:var(--sage-light);flex-shrink:0}
+  .quran-topbar{position:relative;z-index:10;max-width:600px;margin:0 auto;padding:8px 16px 0}
+  .quran-back{background:transparent;border:1.5px solid var(--border);color:var(--text);border-radius:999px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s}
+  .quran-back:hover,.quran-back:active{border-color:var(--sage-light);background:var(--sage-pale)}
+  .quran-hero{max-width:600px;margin:10px auto 0;padding:0 16px}
+  .quran-hero-card{background:linear-gradient(135deg,#16311f,#274832 52%,#3e6346);border-radius:20px;padding:18px 16px;color:#f4fff5;box-shadow:0 12px 30px rgba(18,35,24,.18);border:1px solid rgba(174,214,179,.18)}
+  .quran-hero-kicker{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.8px;color:#b7ddb9}
+  .quran-hero-title{font-size:20px;font-weight:800;line-height:1.2;margin-top:6px}
+  .quran-hero-sub{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.82);margin-top:8px}
+  .quran-choice-bar{max-width:600px;margin:12px auto 0;padding:0 16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .quran-choice{border:1.5px solid var(--border);background:var(--bg2);border-radius:14px;padding:12px 10px;text-align:left;cursor:pointer;transition:all .2s;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  .quran-choice:hover,.quran-choice:active{border-color:var(--sage-light);background:var(--sage-pale);transform:translateY(-1px)}
+  .quran-choice.active{background:linear-gradient(135deg,var(--sage-pale),#f6f2e8);border-color:rgba(107,143,113,.45);box-shadow:0 4px 14px rgba(107,143,113,.12)}
+  .quran-choice-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sage)}
+  .quran-choice-title{font-size:13px;font-weight:800;color:var(--text);margin-top:4px;line-height:1.35}
+  .quran-choice-sub{font-size:11.5px;color:var(--text-light);margin-top:3px;line-height:1.45}
+  .quran-panel{display:none}
+  .quran-panel.active{display:block}
+  .quran-resume{max-width:600px;margin:10px auto 0;padding:0 16px}
+  .quran-resume-card{background:linear-gradient(135deg,var(--sage-pale),#f6f2e8);border:1.5px solid var(--border);border-radius:16px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  .quran-resume-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;color:var(--sage)}
+  .quran-resume-title{font-size:14px;font-weight:800;color:var(--text);margin-top:4px}
+  .quran-resume-sub{font-size:12px;color:var(--text-light);margin-top:3px;line-height:1.5}
+  .quran-resume-btn{background:var(--sage);color:#fff;border:none;border-radius:10px;padding:9px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0}
+  .quran-resume-btn:hover{background:var(--sage-dim)}
+  .quran-resume-empty{font-size:12px;color:var(--text-light);line-height:1.5}
+  .quran-bookmark{max-width:600px;margin:10px auto 0;padding:0 16px}
+  .quran-bookmark-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:16px;padding:14px 16px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  .quran-bookmark-title{font-size:13px;font-weight:800;color:var(--text)}
+  .quran-bookmark-sub{font-size:12px;color:var(--text-light);margin-top:3px;line-height:1.5}
+  .quran-bookmark-row{display:flex;gap:8px;margin-top:12px}
+  .quran-bookmark-row input{flex:1;min-width:0;border:1.5px solid var(--border);background:var(--bg);border-radius:10px;padding:10px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--text)}
+  .quran-bookmark-row input:focus{outline:none;border-color:var(--sage-light);box-shadow:0 0 0 3px rgba(107,143,113,.12)}
+  .quran-bookmark-save{background:var(--sage);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+  .quran-bookmark-save:hover{background:var(--sage-dim)}
+  .quran-panel-wrap{max-width:600px;margin:10px auto 0;padding:0 16px}
+  .juz-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .juz-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;padding:13px 12px;text-decoration:none;transition:all .2s;box-shadow:0 1px 6px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:3px}
+  .juz-card:hover,.juz-card:active{border-color:var(--sage-light);background:var(--sage-pale);box-shadow:0 4px 14px rgba(107,143,113,.12);transform:translateY(-1px)}
+  .juz-number{font-size:14px;font-weight:800;color:var(--sage-dim)}
+  .juz-label{font-size:12px;color:var(--text)}
+  .juz-hint{font-size:11px;color:var(--text-light)}
+
   .sponsor-section{position:relative;z-index:10;max-width:600px;margin:0 auto;padding:16px 16px 0}
   .sponsor-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--sage);margin-bottom:10px;display:flex;align-items:center;gap:8px}
   .sponsor-label::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -268,6 +347,23 @@
   .sponsor-tag{font-size:11.5px;color:var(--text-light);margin-top:2px}
   .sponsor-visit{background:var(--sage);color:#fff;border:none;border-radius:8px;padding:7px 14px;font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s;text-decoration:none;display:inline-block}
   .sponsor-visit:hover{background:var(--sage-dim)}
+  .prayer-live{position:relative;z-index:10;max-width:600px;margin:18px auto 0;padding:0 16px}
+  .prayer-live-shell{background:linear-gradient(135deg,#122318,#203426 54%,#31523a);border:1.5px solid rgba(174,214,179,.25);border-radius:18px;padding:16px;box-shadow:0 10px 28px rgba(18,35,24,.18);color:#f4fff5}
+  .prayer-live-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .prayer-live-kicker{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.8px;color:#b7ddb9}
+  .prayer-live-title{font-size:18px;font-weight:800;line-height:1.2;color:#fff;margin-top:4px}
+  .prayer-live-sub{font-size:12px;line-height:1.5;color:rgba(255,255,255,.76);margin-top:6px}
+  .prayer-live-clock{font-family:'Amiri',serif;font-size:32px;line-height:1;color:#fff;white-space:nowrap;text-align:right}
+  .prayer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .prayer-city{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px}
+  .prayer-city-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .prayer-city-name{font-size:14px;font-weight:800;color:#fff}
+  .prayer-city-badge{font-size:10.5px;font-weight:700;color:#d4edda;background:rgba(255,255,255,.12);border-radius:999px;padding:3px 8px;white-space:nowrap}
+  .prayer-city-time{font-family:'Amiri',serif;font-size:28px;line-height:1;color:#fff;margin-top:8px}
+  .prayer-city-next{font-size:12px;line-height:1.55;color:rgba(255,255,255,.83);margin-top:8px}
+  .prayer-city-next strong{color:#fff}
+  .prayer-city-meta{font-size:11px;color:rgba(255,255,255,.62);margin-top:6px}
+  .prayer-live-foot{font-size:11.5px;color:rgba(255,255,255,.72);margin-top:12px;line-height:1.5}
 
   .slot-open{background:var(--bg);border:1.5px dashed var(--border);border-radius:16px;padding:18px;display:flex;align-items:center;gap:14px;margin-bottom:10px;cursor:pointer;transition:all .2s}
   .slot-open:hover{border-color:var(--sage-light);background:var(--sage-pale)}
@@ -282,8 +378,46 @@
   .support-box p{font-size:12.5px;color:var(--text-mid);line-height:1.6;margin-bottom:14px}
   .support-btn{background:var(--sage);color:#fff;border:none;border-radius:10px;padding:10px 22px;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
   .support-btn:hover{background:var(--sage-dim)}
+  .ziarah-wrap{position:relative;z-index:10;max-width:600px;margin:20px auto 0;padding:0 16px 10px}
+  .ziarah-intro{font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--sage);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .ziarah-intro::after{content:'';flex:1;height:1px;background:var(--border)}
+  .ziarah-city-stack{display:flex;flex-direction:column;gap:12px}
+  .ziarah-city-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,.05)}
+  .ziarah-city-card.makkah{background:linear-gradient(135deg,#f7f3e8,#fefcf7)}
+  .ziarah-city-card.madinah{background:linear-gradient(135deg,#edf7f0,#f7fbf8)}
+  .ziarah-city-card summary{list-style:none;cursor:pointer;padding:18px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .ziarah-city-card summary::-webkit-details-marker{display:none}
+  .ziarah-city-kicker{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--sage);margin-bottom:6px}
+  .ziarah-city-title{font-size:20px;font-weight:800;line-height:1.2;color:var(--text)}
+  .ziarah-city-sub{font-size:12.5px;line-height:1.65;color:var(--text-mid);margin-top:6px}
+  .ziarah-city-side{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .ziarah-chip{font-size:11px;font-weight:700;padding:6px 10px;border-radius:999px;background:rgba(107,143,113,.1);color:var(--sage-dim);border:1px solid var(--border);white-space:nowrap}
+  .ziarah-arrow{font-size:18px;color:var(--sage);transition:transform .2s}
+  .ziarah-city-card[open] .ziarah-arrow{transform:rotate(180deg)}
+  .ziarah-city-body{padding:0 16px 16px}
+  .ziarah-city-note{font-size:12px;line-height:1.65;color:var(--text-light);padding:0 0 12px}
+  .ziarah-place-list{display:flex;flex-direction:column;gap:10px}
+  .ziarah-place{background:rgba(255,255,255,.72);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+  .ziarah-place summary{list-style:none;cursor:pointer;padding:13px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .ziarah-place summary::-webkit-details-marker{display:none}
+  .ziarah-place-title{font-size:14px;font-weight:700;color:var(--text)}
+  .ziarah-place-arrow{font-size:16px;color:var(--sage);transition:transform .2s}
+  .ziarah-place[open] .ziarah-place-arrow{transform:rotate(180deg)}
+  .ziarah-place-body{padding:0 14px 14px}
+  .ziarah-image{width:100%;aspect-ratio:16/10;object-fit:contain;object-position:center;border-radius:14px;border:1px solid var(--border);background:var(--bg);display:block}
+  .ziarah-copy{font-size:12.5px;line-height:1.7;color:var(--text-mid);margin-top:10px}
+  .ziarah-history{font-size:12px;line-height:1.7;color:var(--text-light);margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
 
   .partner-note{position:relative;z-index:10;max-width:600px;margin:0 auto;padding:6px 16px 24px;font-size:11.5px;color:var(--text-light);text-align:center;line-height:1.6}
+  @media (max-width: 520px){
+    .prayer-live-head{flex-direction:column}
+    .prayer-live-clock{text-align:left}
+    .prayer-grid{grid-template-columns:1fr}
+    .prayer-city-time{font-size:26px}
+    .dzikir-head{gap:8px}
+    .dzikir-ico{width:34px;height:34px}
+    .juz-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
   .nasihat-card{background:linear-gradient(135deg,#1a3a1a,#2d5a2d);border:2px solid #4a8a4a;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 4px 20px rgba(0,100,0,.2);animation:fadeUp .4s ease both}
   .nasihat-card:hover{box-shadow:0 8px 32px rgba(0,100,0,.3);transform:translateY(-2px)}
   .nasihat-header{background:linear-gradient(135deg,#C8A84B,#9A7A30);padding:12px 18px;display:flex;align-items:center;gap:10px}
@@ -357,7 +491,11 @@
 <div class="bnav">
   <button class="bnav-btn active" id="nav-doa" onclick="showPage('doa')">
     <span class="bnav-icon">🤲</span>
-    <span class="bnav-label">Doa</span>
+<span class="bnav-label">Haji Umroh</span>
+  </button>
+  <button class="bnav-btn" id="nav-ibadah" onclick="showPage('ibadah')">
+    <span class="bnav-icon">🕌</span>
+    <span class="bnav-label">Ibadah</span>
   </button>
   <button class="bnav-btn" id="nav-checklist" onclick="showPage('checklist')">
     <span class="bnav-icon">✅</span>
@@ -1527,12 +1665,483 @@
 <div class="empty" id="emptyState">Tidak ada doa yang cocok. Coba kata kunci lain.</div>
 </div>
 
+<div class="ziarah-wrap">
+  <div class="ziarah-intro">Ziarah Penting</div>
+  <div class="ziarah-city-stack">
+    <details class="ziarah-city-card makkah">
+      <summary>
+        <div>
+          <div class="ziarah-city-kicker">Klik untuk buka</div>
+          <div class="ziarah-city-title">Ziarah Mekkah</div>
+          <div class="ziarah-city-sub">Buka daftar lokasi ziarah di sekitar Mekkah, lalu klik nama tempat untuk melihat foto, ringkasan, dan sejarah singkatnya.</div>
+        </div>
+        <div class="ziarah-city-side">
+          <div class="ziarah-chip">8 Tempat</div>
+          <div class="ziarah-arrow">▾</div>
+        </div>
+      </summary>
+      <div class="ziarah-city-body">
+        <div class="ziarah-city-note">Adab ziarah: niatkan untuk belajar sejarah dan mengambil hikmah, bukan melakukan ritual khusus yang tidak ada tuntunannya.</div>
+        <div class="ziarah-place-list">
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Peta Ziarah Makkah</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/makkah/1. Peta Ziarah Makkah.png" alt="Peta Ziarah Makkah">
+              <div class="ziarah-copy">Peta ini memberi gambaran rute kunjungan dari Masjidil Haram menuju titik-titik sejarah utama di sekitar Mekkah.</div>
+              <div class="ziarah-history">Secara umum, lokasi-lokasi ziarah Mekkah tersebar dari area pusat kota hingga kawasan Arafah dan Hudaibiyah. Peta membantu jamaah memahami arah, jarak, dan urutan kunjungan yang lebih nyaman.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Jabal Nur</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/makkah/2. Jabal Nur.png" alt="Jabal Nur">
+              <div class="ziarah-copy">Gunung tempat Gua Hira berada, lokasi yang sangat dikenal sebagai awal turunnya wahyu kepada Nabi Muhammad SAW.</div>
+              <div class="ziarah-history">Di Gua Hira, Malaikat Jibril menyampaikan wahyu pertama: iqra'. Karena itu Jabal Nur menjadi simbol permulaan risalah Islam dan awal cahaya petunjuk bagi umat manusia.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Jabal Tsur</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/makkah/3. Jabal Tsur.png" alt="Jabal Tsur">
+              <div class="ziarah-copy">Gunung yang menyimpan kisah hijrah Nabi SAW bersama Abu Bakar Ash-Shiddiq ketika dikejar kaum Quraisy.</div>
+              <div class="ziarah-history">Di gua inilah Nabi bersembunyi selama tiga hari. Kisah laba-laba dan burung merpati menjadi pengingat bahwa pertolongan Allah datang dengan cara yang tidak terduga.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Pemakaman Ma'la</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/makkah/4. Pemakaman Ma'la.png" alt="Pemakaman Ma'la">
+              <div class="ziarah-copy">Pemakaman tua di Mekkah yang menjadi tempat dimakamkannya Siti Khadijah RA dan sejumlah keluarga Nabi.</div>
+              <div class="ziarah-history">Ma'la mengajarkan kesederhanaan makam di Tanah Suci. Jamaah datang untuk mengambil ibrah tentang kemuliaan orang saleh dan mengingat kehidupan akhirat.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Jin</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/makkah/5. Masjid Jin.png" alt="Masjid Jin">
+              <div class="ziarah-copy">Tempat yang masyhur dikaitkan dengan peristiwa jin mendengar bacaan Al-Qur'an lalu beriman.</div>
+              <div class="ziarah-history">Lokasi ini mengingatkan bahwa dakwah Nabi SAW dan kemukjizatan Al-Qur'an menjangkau seluruh makhluk, bukan hanya manusia.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Jabal Rahmah</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/makkah/6. Jabal Rahmah.png" alt="Jabal Rahmah">
+              <div class="ziarah-copy">Bukit yang berada di kawasan Arafah dan sering dikaitkan dengan kisah pertemuan Nabi Adam AS dan Hawa.</div>
+              <div class="ziarah-history">Yang lebih penting bagi jamaah adalah memahami bahwa kawasan Arafah adalah tempat puncak wukuf, tempat taubat, doa, dan kasih sayang Allah tercurah luas.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Perjanjian Hudaibiyah</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/makkah/7. Perjanjian Hudaibiyah.png" alt="Perjanjian Hudaibiyah">
+              <div class="ziarah-copy">Lokasi kesepakatan damai antara Nabi SAW dan Quraisy yang menjadi pintu pembuka kemenangan besar Islam.</div>
+              <div class="ziarah-history">Meski secara lahir tampak berat bagi sebagian sahabat, Perjanjian Hudaibiyah justru membuka jalan bagi Fathu Makkah dan penyebaran Islam yang lebih luas.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Thaif</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/makkah/8. Thoif.png" alt="Thaif">
+              <div class="ziarah-copy">Kota yang menyimpan kisah ujian berat dakwah Nabi SAW saat beliau ditolak dan dilempari batu.</div>
+              <div class="ziarah-history">Peristiwa Thaif mengajarkan kesabaran, kelapangan hati, dan keagungan akhlak Nabi SAW yang tetap mendoakan kebaikan untuk penduduknya, bukan membalas dendam.</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </details>
+
+    <details class="ziarah-city-card madinah">
+      <summary>
+        <div>
+          <div class="ziarah-city-kicker">Klik untuk buka</div>
+          <div class="ziarah-city-title">Ziarah Madinah</div>
+          <div class="ziarah-city-sub">Buka daftar tempat kunjungan selama di Madinah, lalu klik nama tempat untuk melihat gambar, ringkasan, dan sejarah singkatnya.</div>
+        </div>
+        <div class="ziarah-city-side">
+          <div class="ziarah-chip">17 Tempat</div>
+          <div class="ziarah-arrow">▾</div>
+        </div>
+      </summary>
+      <div class="ziarah-city-body">
+        <div class="ziarah-city-note">Urutan kunjungan dapat berbeda sesuai rombongan, namun biasanya berpusat dari Masjid Nabawi lalu berlanjut ke Quba, Uhud, Qiblatain, Khandaq, dan lokasi bersejarah lainnya.</div>
+        <div class="ziarah-place-list">
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Peta Ziarah Madinah</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/16. Peta Ziarah Madinah.png" alt="Peta Ziarah Madinah">
+              <div class="ziarah-copy">Peta umum rute ziarah Madinah dari Masjid Nabawi menuju Quba, Qiblatain, Khandaq, dan kawasan Uhud.</div>
+              <div class="ziarah-history">Peta ini memudahkan jamaah memahami jarak dan letak lokasi penting sehingga perjalanan ziarah menjadi lebih terarah dan tidak membingungkan.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Nabawi Dulu & Kini</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/2. Masjid Nabawi Dulu & Kini.png" alt="Masjid Nabawi Dulu dan Kini">
+              <div class="ziarah-copy">Masjid Nabawi berkembang dari bangunan sederhana menjadi kompleks masjid yang sangat luas dan megah.</div>
+              <div class="ziarah-history">Masjid ini dibangun Nabi SAW setelah hijrah. Dari tiang batang kurma dan atap sederhana, kini ia menjadi pusat ibadah umat Islam dari seluruh dunia.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Pintu Masjid Nabawi</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/3. Pintu Masjid Nabawi.png" alt="Pintu Masjid Nabawi">
+              <div class="ziarah-copy">Mengenali nomor dan fungsi pintu sangat membantu jamaah saat masuk, keluar, menuju Raudhah, atau titik kumpul rombongan.</div>
+              <div class="ziarah-history">Di masjid sebesar Nabawi, hafal pintu sering lebih penting daripada hafal arah. Ini menjadi bagian praktis dari pengalaman ibadah di Madinah.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Shalat Arbain</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/4. Sholat Arbain 40 Waktu.png" alt="Shalat Arbain">
+              <div class="ziarah-copy">Program menjaga 40 waktu salat berjamaah di Masjid Nabawi yang populer di kalangan jamaah.</div>
+              <div class="ziarah-history">Inti amalan ini adalah disiplin menjaga salat berjamaah secara beruntun selama di Madinah, sebagai latihan konsistensi dan kecintaan kepada masjid Nabi.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Majelis Ilmu</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/5. Majelis Ilmu.png" alt="Majelis Ilmu">
+              <div class="ziarah-copy">Madinah bukan hanya kota ziarah, tetapi juga kota ilmu tempat banyak kajian diadakan di sekitar Masjid Nabawi.</div>
+              <div class="ziarah-history">Sejak masa Nabi SAW, Madinah adalah pusat pembinaan ilmu dan iman. Menghadiri majelis ilmu menjadi cara indah mengisi hari-hari di kota beliau.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Ziarah Makam Rasulullah SAW</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/6. Makam Rosul.png" alt="Ziarah Makam Rasulullah">
+              <div class="ziarah-copy">Jamaah datang untuk mengucapkan salam kepada Nabi SAW serta dua sahabat beliau, Abu Bakar RA dan Umar RA.</div>
+              <div class="ziarah-history">Dahulu area ini adalah kamar Aisyah RA. Adab terpenting saat berziarah adalah tenang, tidak mengangkat suara, dan tetap berdoa hanya kepada Allah.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Raudhah</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/7. Raudhah.png" alt="Raudhah">
+              <div class="ziarah-copy">Area antara rumah Nabi dan mimbar beliau yang disebut sebagai taman dari taman-taman surga.</div>
+              <div class="ziarah-history">Kini akses ke Raudhah biasanya diatur melalui aplikasi dan jadwal tertentu. Jamaah perlu mengikuti aturan dengan tertib dan menjaga adab saat masuk.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Quba</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/19. Masjid Quba.png" alt="Masjid Quba">
+              <div class="ziarah-copy">Masjid pertama yang dibangun Nabi SAW saat hijrah dan dikenal sebagai masjid yang dibangun di atas takwa.</div>
+              <div class="ziarah-history">Quba menjadi simbol awal hijrah dan awal penegakan masyarakat Islam di Madinah. Jamaah biasa berkunjung untuk salat dua rakaat di sana.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Jabal Uhud</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/9. Jabal Uhud.png" alt="Jabal Uhud">
+              <div class="ziarah-copy">Gunung yang dicintai Nabi SAW dan menjadi saksi peristiwa besar Perang Uhud.</div>
+              <div class="ziarah-history">Uhud mengingatkan jamaah pada kecintaan Nabi terhadap tempat ini, juga pada besarnya pengorbanan para sahabat dalam membela Islam.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Ziarah Uhud & Makam Syuhada</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/17. Ziarah Uhud.png" alt="Ziarah Uhud">
+              <div class="ziarah-copy">Kawasan ini mengingatkan pada kisah Perang Uhud, Jabal Rumat, dan makam para syuhada yang gugur di jalan Allah.</div>
+              <div class="ziarah-history">Di sinilah jamaah mengenang ujian besar yang dialami kaum Muslimin, termasuk pentingnya taat kepada Rasul dan tidak tergoda oleh harta rampasan.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Jabal Uhud & Makam Syuhada</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/18. Jabal Uhud dan Makam Syuhada.png" alt="Jabal Uhud dan Makam Syuhada">
+              <div class="ziarah-copy">Ringkasan visual kawasan Uhud, bukit pemanah, dan makam para syuhada, termasuk Sayyidina Hamzah RA.</div>
+              <div class="ziarah-history">Area ini adalah pelajaran hidup tentang keberanian, ketaatan, dan harga mahal dari sebuah kelalaian dalam menaati perintah Nabi SAW.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Pemakaman Baqi</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/10. Pemakaman Baqi.png" alt="Pemakaman Baqi">
+              <div class="ziarah-copy">Pemakaman mulia di sisi Masjid Nabawi yang menjadi tempat peristirahatan banyak sahabat, keluarga Nabi, dan orang saleh.</div>
+              <div class="ziarah-history">Baqi mengajarkan kesederhanaan makam di Madinah dan mengingatkan jamaah pada akhirat serta pentingnya mendoakan kaum Muslimin yang telah wafat.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Ghamamah</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/12. Masjid Ghamamah.png" alt="Masjid Ghamamah">
+              <div class="ziarah-copy">Masjid yang dikenal dengan kisah Nabi SAW melaksanakan salat Id dan doa istisqa di kawasan ini.</div>
+              <div class="ziarah-history">Nama Ghamamah berarti awan. Tempat ini mengingatkan pada kisah doa Nabi yang dinaungi awan, dan jejak musalla lapangan di masa beliau.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Al-Ijabah</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/13. Masjid Al-Ijabah.png" alt="Masjid Al-Ijabah">
+              <div class="ziarah-copy">Masjid yang populer dengan kisah tiga doa Nabi SAW: dua dikabulkan dan satu tidak.</div>
+              <div class="ziarah-history">Dari kisah ini jamaah belajar bahwa Allah mengabulkan banyak doa kebaikan untuk umat, namun perpecahan dan permusuhan internal tetap menjadi ujian besar.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Jumu'ah</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/14. Masjid Jumu'ah.png" alt="Masjid Jumu'ah">
+              <div class="ziarah-copy">Lokasi yang dikaitkan dengan pelaksanaan salat Jumat pertama Nabi SAW saat perjalanan hijrah.</div>
+              <div class="ziarah-history">Masjid ini menjadi penanda lahirnya salah satu syiar besar Islam di Madinah, yaitu salat Jumat berjamaah yang kemudian menjadi rutin bagi umat Islam.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Khandaq</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/20. Masjid Khandaq.png" alt="Masjid Khandaq">
+              <div class="ziarah-copy">Kawasan yang berkaitan dengan Perang Khandaq dan strategi parit Salman Al-Farisi yang menyelamatkan Madinah.</div>
+              <div class="ziarah-history">Di area ini Nabi SAW berdoa memohon pertolongan Allah saat pasukan Ahzab mengepung Madinah. Perang Khandaq menjadi simbol kecerdasan strategi dan tawakal.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Tujuh (Khandaq)</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/21. Masjid Tujuh  Khandaq.png" alt="Masjid Tujuh Khandaq">
+              <div class="ziarah-copy">Sekelompok masjid kecil di kawasan Khandaq yang sering menjadi bagian dari rute ziarah sejarah di Madinah.</div>
+              <div class="ziarah-history">Lokasi ini mengingatkan pada suasana pertahanan Madinah dalam Perang Khandaq serta jejak perjuangan para sahabat bersama Nabi SAW.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">Masjid Qiblatain</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/22. Masjid Qiblatain.png" alt="Masjid Qiblatain">
+              <div class="ziarah-copy">Masjid bersejarah tempat perubahan arah kiblat dari Baitul Maqdis ke Ka'bah.</div>
+              <div class="ziarah-history">Peristiwa ini menunjukkan ketaatan penuh para sahabat terhadap wahyu. Dalam satu salat, arah kiblat berpindah mengikuti perintah Allah.</div>
+            </div>
+          </details>
+          <details class="ziarah-place">
+            <summary><div class="ziarah-place-title">King Fahd Complex</div><div class="ziarah-place-arrow">▾</div></summary>
+            <div class="ziarah-place-body">
+              <img class="ziarah-image" src="assets/images/ziarah/madinah/15. King Fahd Complex.png" alt="King Fahd Complex">
+              <div class="ziarah-copy">Kompleks percetakan Al-Qur'an terbesar di Madinah yang terkenal dengan produksi Mushaf Madinah.</div>
+              <div class="ziarah-history">Tempat ini memperlihatkan bagaimana mushaf dicetak, diperiksa, dan disebarkan ke seluruh dunia dengan ketelitian yang sangat tinggi.</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
+
 <div class="ornament">✦ ✦ ✦</div>
 <footer>
   Labbaik — Teman Haji &amp; Umrohmu &nbsp;·&nbsp; Semoga ibadah Anda diterima Allah ﷻ<br>
   <span style="opacity:.6">by @dokrifqi</span>
 </footer>
 </div><!-- /page-doa -->
+
+
+<!-- ══ IBADAH HARIAN PAGE ══ -->
+<div id="page-ibadah" class="page">
+<div class="sp-page-header">
+  <h2>🕌 Ibadah Harian</h2>
+  <p>Jam Saudi live, hitung mundur menuju salat berikutnya, dan pintasan Qur'an 30 juz.</p>
+</div>
+
+<div class="prayer-live">
+  <div class="prayer-live-shell">
+    <div class="prayer-live-head">
+      <div>
+        <div class="prayer-live-kicker">Waktu Live Saudi</div>
+        <div class="prayer-live-title">Mekkah & Madinah</div>
+        <div class="prayer-live-sub">Jam lokal Arab Saudi (UTC+3) dan hitung mundur ke salat berikutnya.</div>
+      </div>
+      <div class="prayer-live-clock" id="saudiNowClock">--:--:--</div>
+    </div>
+    <div class="prayer-grid">
+      <div class="prayer-city" data-prayer-city="makkah">
+        <div class="prayer-city-top">
+          <div class="prayer-city-name">Mekkah</div>
+          <div class="prayer-city-badge">Masjidil Haram</div>
+        </div>
+        <div class="prayer-city-time" id="prayer-time-makkah">--:--</div>
+        <div class="prayer-city-next" id="prayer-next-makkah">Memuat jadwal...</div>
+        <div class="prayer-city-meta" id="prayer-meta-makkah">Menunggu sinkronisasi...</div>
+      </div>
+      <div class="prayer-city" data-prayer-city="madinah">
+        <div class="prayer-city-top">
+          <div class="prayer-city-name">Madinah</div>
+          <div class="prayer-city-badge">Masjid Nabawi</div>
+        </div>
+        <div class="prayer-city-time" id="prayer-time-madinah">--:--</div>
+        <div class="prayer-city-next" id="prayer-next-madinah">Memuat jadwal...</div>
+        <div class="prayer-city-meta" id="prayer-meta-madinah">Menunggu sinkronisasi...</div>
+      </div>
+    </div>
+    <div class="prayer-live-foot">Salat ditampilkan dalam jam lokal Saudi. Jadwal diperbarui otomatis dari sumber AlAdhan.</div>
+  </div>
+</div>
+
+<div class="ibadah-section">
+  <div class="ibadah-section-title">📿 Dzikir Harian</div>
+  <div class="dzikir-stack">
+    <details class="dzikir-card">
+      <summary>
+        <div class="dzikir-head">
+          <div class="dzikir-ico">🌅</div>
+          <div>
+            <div class="dzikir-title">Dzikir Pagi</div>
+            <div class="dzikir-sub">Dibaca setelah Subuh hingga sebelum Dhuhr.</div>
+          </div>
+        </div>
+        <div class="dzikir-chevron">›</div>
+      </summary>
+      <div class="dzikir-body">
+        <div class="dzikir-list">
+          <div class="dzikir-item"><div class="dzikir-label">Ayat Kursi</div><div class="dzikir-ar">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</div><div class="dzikir-note">Dibaca 1 kali setelah Subuh.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Al-Ikhlas</div><div class="dzikir-ar">قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ</div><div class="dzikir-note">Dibaca 3 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Al-Falaq</div><div class="dzikir-ar">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ</div><div class="dzikir-note">Dibaca 3 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">An-Nas</div><div class="dzikir-ar">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ</div><div class="dzikir-note">Dibaca 3 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Doa Pagi</div><div class="dzikir-ar">اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ</div><div class="dzikir-note">Baca di awal pagi sebagai pembuka hari.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Ridha Allah</div><div class="dzikir-ar">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا</div><div class="dzikir-note">Dibaca 3 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Ilmu yang bermanfaat</div><div class="dzikir-ar">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا</div><div class="dzikir-note">Dibaca setelah salam pagi atau setelah Subuh.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Istighfar</div><div class="dzikir-ar">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div><div class="dzikir-note">Perbanyak sesuai kemampuan.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Tasbih Pagi</div><div class="dzikir-ar">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</div><div class="dzikir-note">100 kali.</div></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="dzikir-card">
+      <summary>
+        <div class="dzikir-head">
+          <div class="dzikir-ico">🌙</div>
+          <div>
+            <div class="dzikir-title">Dzikir Petang</div>
+            <div class="dzikir-sub">Dibaca setelah Ashar hingga malam.</div>
+          </div>
+        </div>
+        <div class="dzikir-chevron">›</div>
+      </summary>
+      <div class="dzikir-body">
+        <div class="dzikir-list">
+          <div class="dzikir-item"><div class="dzikir-label">Ayat Kursi</div><div class="dzikir-ar">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</div><div class="dzikir-note">Dibaca 1 kali saat petang.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Al-Ikhlas</div><div class="dzikir-ar">قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ</div><div class="dzikir-note">Dibaca 3 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Al-Falaq</div><div class="dzikir-ar">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ</div><div class="dzikir-note">Dibaca 3 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">An-Nas</div><div class="dzikir-ar">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ</div><div class="dzikir-note">Dibaca 3 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Doa Petang</div><div class="dzikir-ar">اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ</div><div class="dzikir-note">Baca di waktu sore.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Keimanan sore</div><div class="dzikir-ar">اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلَائِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لَا إِلَٰهَ إِلَّا أَنْتَ، وَحْدَكَ لَا شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ</div><div class="dzikir-note">Dibaca 4 kali bila ingin melengkapi dzikir sore yang ma’ruf.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Tauhid</div><div class="dzikir-ar">لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ</div><div class="dzikir-note">Perbanyak sesuai kemampuan.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Istighfar Petang</div><div class="dzikir-ar">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div><div class="dzikir-note">Dibaca berulang sebagai penutup sore.</div></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="dzikir-card">
+      <summary>
+        <div class="dzikir-head">
+          <div class="dzikir-ico">🕌</div>
+          <div>
+            <div class="dzikir-title">Dzikir Setelah Salat Fardhu</div>
+            <div class="dzikir-sub">Dzikir pendek setelah setiap salat wajib.</div>
+          </div>
+        </div>
+        <div class="dzikir-chevron">›</div>
+      </summary>
+      <div class="dzikir-body">
+        <div class="dzikir-list">
+          <div class="dzikir-item"><div class="dzikir-label">Istighfar</div><div class="dzikir-ar">أَسْتَغْفِرُ اللَّهَ أَسْتَغْفِرُ اللَّهَ أَسْتَغْفِرُ اللَّهَ</div><div class="dzikir-note">Setelah salam.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Doa Salam</div><div class="dzikir-ar">اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ</div><div class="dzikir-note">Baca setelah istighfar.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Tasbih</div><div class="dzikir-ar">سُبْحَانَ اللَّهِ</div><div class="dzikir-note">33 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Tahmid</div><div class="dzikir-ar">الْحَمْدُ لِلَّهِ</div><div class="dzikir-note">33 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Takbir</div><div class="dzikir-ar">اللَّهُ أَكْبَرُ</div><div class="dzikir-note">34 kali.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Tauhid Setelah Salat</div><div class="dzikir-ar">لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ</div><div class="dzikir-note">Lengkapi dzikir tauhid setelah tasbih-tahmid-takbir.</div></div>
+          <div class="dzikir-item"><div class="dzikir-label">Ayat Kursi</div><div class="dzikir-ar">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</div><div class="dzikir-note">Dibaca 1 kali sebagai penutup.</div></div>
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<div class="ibadah-section">
+  <div class="ibadah-section-title">📖 Qur'an</div>
+  <div class="quran-entry" onclick="showPage('quran')">
+    <div class="quran-entry-ico">📖</div>
+    <div class="quran-entry-info">
+      <div class="quran-entry-title">Masuk ke Qur'an 30 Juz</div>
+      <div class="quran-entry-sub">Pilih dulu halaman Qur'an, lalu tentukan juz yang ingin dibaca.</div>
+    </div>
+    <div class="quran-entry-arrow">→</div>
+  </div>
+  <div class="ibadah-note">Pintasan ini memudahkan tilawah harian selama perjalanan. Setelah masuk ke menu Qur'an, baru pilih juz yang diinginkan.</div>
+</div>
+</div><!-- /page-ibadah -->
+
+
+<!-- ══ QURAN PAGE ══ -->
+<div id="page-quran" class="page">
+<div class="sp-page-header">
+  <h2>📖 Al-Qur'an</h2>
+  <p>Pilih mode bacaan yang kamu inginkan.</p>
+</div>
+
+<div class="quran-topbar">
+  <button class="quran-back" onclick="showPage('ibadah')">← Kembali ke Ibadah</button>
+</div>
+
+<div class="quran-hero">
+  <div class="quran-hero-card">
+    <div class="quran-hero-kicker">Menu Qur'an</div>
+    <div class="quran-hero-title">Lanjutkan, simpan ayat, atau pilih juz</div>
+    <div class="quran-hero-sub">Tampilan ini dibuat bertahap supaya kamu tidak perlu scroll panjang. Tinggal pilih dulu mode yang paling pas.</div>
+  </div>
+</div>
+
+<div class="quran-choice-bar">
+  <button class="quran-choice active" id="quranChoiceResume" onclick="setQuranMode('resume')">
+    <div class="quran-choice-label">Pilihan 1</div>
+    <div class="quran-choice-title">Lanjutkan terakhir</div>
+    <div class="quran-choice-sub">Buka bacaan yang terakhir disimpan.</div>
+  </button>
+  <button class="quran-choice" id="quranChoiceAyat" onclick="setQuranMode('bookmark')">
+    <div class="quran-choice-label">Pilihan 2</div>
+    <div class="quran-choice-title">Simpan ayat</div>
+    <div class="quran-choice-sub">Masukkan surah dan ayat tertentu.</div>
+  </button>
+  <button class="quran-choice" id="quranChoiceJuz" onclick="setQuranMode('juz')">
+    <div class="quran-choice-label">Pilihan 3</div>
+    <div class="quran-choice-title">Pilih juz</div>
+    <div class="quran-choice-sub">Langsung buka juz 1 sampai 30.</div>
+  </button>
+</div>
+
+<div class="quran-panel-wrap">
+  <div class="quran-panel active" id="quranPanelResume">
+<div class="quran-resume">
+  <div class="quran-resume-card" id="quranResumeCard">
+    <div>
+      <div class="quran-resume-label">Pintasan Cepat</div>
+      <div class="quran-resume-title" id="quranResumeTitle">Belum ada bacaan tersimpan</div>
+      <div class="quran-resume-sub" id="quranResumeSub">Buka salah satu juz dulu, nanti link terakhir akan muncul di sini.</div>
+    </div>
+    <a class="quran-resume-btn" id="quranResumeBtn" href="#" target="_blank" rel="noopener noreferrer" style="display:none">Lanjutkan</a>
+  </div>
+</div>
+  </div>
+
+  <div class="quran-panel" id="quranPanelBookmark">
+<div class="quran-bookmark">
+  <div class="quran-bookmark-card">
+    <div class="quran-bookmark-title">Simpan Ayat Terakhir</div>
+    <div class="quran-bookmark-sub">Kalau kamu berhenti di ayat tertentu, isi nomor surah dan ayat sekali. Nanti tombol lanjut akan langsung menuju ke sana.</div>
+    <div class="quran-bookmark-row">
+      <input id="quranSurahInput" type="number" min="1" max="114" placeholder="Surah">
+      <input id="quranAyatInput" type="number" min="1" placeholder="Ayat">
+      <button class="quran-bookmark-save" onclick="saveQuranAyatBookmark()">Simpan</button>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="quran-panel" id="quranPanelJuz">
+<div class="ibadah-section" style="margin-top:0;padding-top:0">
+  <div class="ibadah-section-title">Pilih Juz</div>
+  <div class="juz-grid" id="quranJuzGrid"></div>
+  <div class="ibadah-note">Setelah memilih juz, halaman Qur'an akan terbuka di tab baru agar tetap cepat kembali ke aplikasi ini.</div>
+</div>
+</div>
+</div>
+</div><!-- /page-quran -->
 
 
 <!-- ══ CHECKLIST PAGE ══ -->
@@ -2618,6 +3227,7 @@
     currentCat = cat;
 
     // Swap menu → list
+    document.getElementById('page-doa').classList.add('list-mode');
     document.getElementById('catMenu').style.display = 'none';
     document.getElementById('backBtn').classList.add('visible');
     document.getElementById('sectionTitle').textContent = label;
@@ -2633,6 +3243,7 @@
   // Back to menu
   function goBack(){
     currentCat = null;
+    document.getElementById('page-doa').classList.remove('list-mode');
     document.getElementById('catMenu').style.display = 'grid';
     document.getElementById('backBtn').classList.remove('visible');
     document.getElementById('sectionTitle').classList.remove('visible');
@@ -2668,12 +3279,15 @@
   // ── Page Navigation ──
   function showPage(name){
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('page-'+name).classList.add('active');
+    const page = document.getElementById('page-'+name);
+    if(page) page.classList.add('active');
     document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
-    document.getElementById('nav-'+name).classList.add('active');
+    const navBtn = document.getElementById('nav-'+name);
+    if(navBtn) navBtn.classList.add('active');
     if(name==='doa'){
       // Reset doa to menu view without calling showPage again
       currentCat = null;
+      document.getElementById('page-doa').classList.remove('list-mode');
       document.getElementById('catMenu').style.display = 'grid';
       document.getElementById('backBtn').classList.remove('visible');
       document.getElementById('sectionTitle').classList.remove('visible');
@@ -2743,14 +3357,334 @@
     }
   }
 
+  const QURAN_LAST_KEY = 'labbaik_quran_last_read_v1';
+
+  function saveQuranTarget(url, label){
+    try{
+      localStorage.setItem(QURAN_LAST_KEY, JSON.stringify({
+        url: url,
+        label: label || 'Bacaan terakhir',
+        savedAt: Date.now(),
+      }));
+    }catch(e){}
+    renderQuranResume();
+  }
+
+  function saveQuranAyatBookmark(){
+    const surahInput = document.getElementById('quranSurahInput');
+    const ayatInput = document.getElementById('quranAyatInput');
+    if(!surahInput || !ayatInput) return;
+    const surah = String(surahInput.value || '').trim();
+    const ayat = String(ayatInput.value || '').trim();
+    if(!surah || !ayat){
+      alert('Isi nomor surah dan ayat dulu ya.');
+      return;
+    }
+    const url = 'https://quran.com/id/' + surah + ':' + ayat;
+    saveQuranTarget(url, 'QS ' + surah + ':' + ayat);
+  }
+
+  function setQuranMode(mode){
+    const panels = {
+      resume: document.getElementById('quranPanelResume'),
+      bookmark: document.getElementById('quranPanelBookmark'),
+      juz: document.getElementById('quranPanelJuz'),
+    };
+    const buttons = {
+      resume: document.getElementById('quranChoiceResume'),
+      bookmark: document.getElementById('quranChoiceAyat'),
+      juz: document.getElementById('quranChoiceJuz'),
+    };
+    Object.keys(panels).forEach(key => {
+      if(panels[key]) panels[key].classList.toggle('active', key === mode);
+      if(buttons[key]) buttons[key].classList.toggle('active', key === mode);
+    });
+  }
+
+  function renderQuranResume(){
+    const title = document.getElementById('quranResumeTitle');
+    const sub = document.getElementById('quranResumeSub');
+    const btn = document.getElementById('quranResumeBtn');
+    if(!title || !sub || !btn) return;
+    let saved = null;
+    try{ saved = JSON.parse(localStorage.getItem(QURAN_LAST_KEY)||'null'); }catch(e){}
+    if(saved && saved.url){
+      title.textContent = saved.label || 'Bacaan terakhir';
+      sub.textContent = 'Tap untuk lanjut ke bacaan yang terakhir kamu buka.';
+      btn.href = saved.url;
+      btn.style.display = 'inline-block';
+      btn.textContent = 'Lanjutkan';
+    }else{
+      title.textContent = 'Belum ada bacaan tersimpan';
+      sub.textContent = 'Buka salah satu juz dulu, nanti link terakhir akan muncul di sini.';
+      btn.style.display = 'none';
+      btn.removeAttribute('href');
+    }
+  }
+
+  function renderJuzGrid(){
+    const grid = document.getElementById('quranJuzGrid');
+    if(!grid) return;
+    const juzItems = Array.from({length: 30}, (_, index) => index + 1);
+    grid.innerHTML = juzItems.map(num => (
+      '<a class="juz-card" href="https://quran.com/id/juz/' + num + '" target="_blank" rel="noopener noreferrer" onclick="saveQuranTarget(\'https://quran.com/id/juz/' + num + '\', \'Juz ' + num + '\')">' +
+        '<div class="juz-number">Juz ' + num + '</div>' +
+        '<div class="juz-label">Buka bacaan</div>' +
+        '<div class="juz-hint">Terjemahan Indonesia</div>' +
+      '</a>'
+    )).join('');
+  }
+
   // Init setelah DOM siap
   document.addEventListener('DOMContentLoaded', function(){
     loadChecklist();
+    initPrayerWidget();
+    renderQuranResume();
+    renderJuzGrid();
     // Sync toggle button icon after DOM ready
     const isDark = document.body.classList.contains('dark-mode');
     const btn = document.getElementById('dmToggle');
     if(btn) btn.textContent = isDark ? '🌙' : '☀️';
   });
+
+  // ── Live Saudi Prayer Clock ──
+  const prayerCities = {
+    makkah: {
+      label: 'Mekkah',
+      badge: 'Masjidil Haram',
+      timeZone: 'Asia/Riyadh',
+      latitude: 21.4225,
+      longitude: 39.8262,
+    },
+    madinah: {
+      label: 'Madinah',
+      badge: 'Masjid Nabawi',
+      timeZone: 'Asia/Riyadh',
+      latitude: 24.5247,
+      longitude: 39.5692,
+    },
+  };
+  const prayerMonthCache = new Map();
+  const prayerOrder = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+  const prayerLabels = {
+    Fajr: 'Subuh',
+    Dhuhr: 'Dzuhur',
+    Asr: 'Ashar',
+    Maghrib: 'Maghrib',
+    Isha: 'Isya',
+  };
+  let prayerWidgetReady = false;
+  let prayerWidgetTimer = null;
+  let prayerWidgetRefreshTimer = null;
+
+  function pad2(value){
+    return String(value).padStart(2, '0');
+  }
+
+  function getZonedParts(date, timeZone){
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    }).formatToParts(date);
+    const map = {};
+    parts.forEach(part => {
+      if(part.type !== 'literal') map[part.type] = part.value;
+    });
+    return {
+      year: Number(map.year),
+      month: Number(map.month),
+      day: Number(map.day),
+      hour: Number(map.hour),
+      minute: Number(map.minute),
+      second: Number(map.second),
+    };
+  }
+
+  function formatClockFromParts(parts){
+    return pad2(parts.hour) + ':' + pad2(parts.minute) + ':' + pad2(parts.second);
+  }
+
+  function minutesToText(totalMinutes){
+    if(totalMinutes <= 0) return 'sekarang';
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    if(hours && minutes) return hours + ' jam ' + minutes + ' menit';
+    if(hours) return hours + ' jam';
+    return minutes + ' menit';
+  }
+
+  function parsePrayerTime(raw){
+    const cleaned = String(raw || '').split('(')[0].trim();
+    const match = cleaned.match(/^(\d{1,2}):(\d{2})/);
+    if(!match) return null;
+    return {
+      hour: Number(match[1]),
+      minute: Number(match[2]),
+      text: pad2(match[1]) + ':' + pad2(match[2]),
+    };
+  }
+
+  function getPrayerMonthKey(cityKey, year, month){
+    return cityKey + ':' + year + '-' + pad2(month);
+  }
+
+  async function fetchPrayerMonth(cityKey, year, month){
+    const cacheKey = getPrayerMonthKey(cityKey, year, month);
+    if(prayerMonthCache.has(cacheKey)) return prayerMonthCache.get(cacheKey);
+
+    const city = prayerCities[cityKey];
+    const url = 'https://api.aladhan.com/v1/calendar/' + year + '/' + month +
+      '?latitude=' + city.latitude +
+      '&longitude=' + city.longitude +
+      '&method=4';
+
+    const response = await fetch(url);
+    if(!response.ok) throw new Error('Prayer API ' + response.status);
+
+    const json = await response.json();
+    const days = Array.isArray(json.data) ? json.data : (Array.isArray(json) ? json : []);
+    if(!days.length) throw new Error('Prayer API empty');
+
+    const payload = { year, month, days };
+    prayerMonthCache.set(cacheKey, payload);
+    return payload;
+  }
+
+  async function ensurePrayerData(){
+    const nowParts = getZonedParts(new Date(), 'Asia/Riyadh');
+    const currentMonthDate = new Date(Date.UTC(nowParts.year, nowParts.month - 1, 1));
+    const nextMonthDate = new Date(currentMonthDate.getTime());
+    nextMonthDate.setUTCMonth(nextMonthDate.getUTCMonth() + 1);
+
+    const currentYear = currentMonthDate.getUTCFullYear();
+    const currentMonth = currentMonthDate.getUTCMonth() + 1;
+    const nextYear = nextMonthDate.getUTCFullYear();
+    const nextMonth = nextMonthDate.getUTCMonth() + 1;
+
+    await Promise.all(Object.keys(prayerCities).flatMap(cityKey => ([
+      fetchPrayerMonth(cityKey, currentYear, currentMonth).catch(() => null),
+      fetchPrayerMonth(cityKey, nextYear, nextMonth).catch(() => null),
+    ])));
+  }
+
+  function findMonthCache(cityKey, year, month){
+    return prayerMonthCache.get(getPrayerMonthKey(cityKey, year, month)) || null;
+  }
+
+  function findDayEntry(days, year, month, day){
+    return days.find(item => {
+      const gregorian = item?.date?.gregorian;
+      if(!gregorian) return false;
+      const gregorianMonth = Number(gregorian.month?.number);
+      return Number(gregorian.year) === year &&
+        gregorianMonth === month &&
+        Number(gregorian.day) === day;
+    }) || null;
+  }
+
+  function getPrayerStatus(cityKey){
+    const city = prayerCities[cityKey];
+    const nowParts = getZonedParts(new Date(), city.timeZone);
+    const currentMonth = findMonthCache(cityKey, nowParts.year, nowParts.month);
+    const nextMonthDate = new Date(Date.UTC(nowParts.year, nowParts.month - 1, 1));
+    nextMonthDate.setUTCMonth(nextMonthDate.getUTCMonth() + 1);
+    const nextMonth = findMonthCache(cityKey, nextMonthDate.getUTCFullYear(), nextMonthDate.getUTCMonth() + 1);
+
+    if(!currentMonth) return { loading: true };
+
+    const todayEntry = findDayEntry(currentMonth.days, nowParts.year, nowParts.month, nowParts.day);
+    if(!todayEntry) return { loading: true };
+
+    const nowMinutes = nowParts.hour * 60 + nowParts.minute;
+    let nextPrayer = null;
+    let minutesLeft = null;
+    let nextDayLabel = '';
+
+    for(const prayerName of prayerOrder){
+      const prayerTime = parsePrayerTime(todayEntry?.timings?.[prayerName]);
+      if(!prayerTime) continue;
+      const prayerMinutes = prayerTime.hour * 60 + prayerTime.minute;
+      if(prayerMinutes > nowMinutes){
+        nextPrayer = prayerName;
+        minutesLeft = prayerMinutes - nowMinutes;
+        break;
+      }
+    }
+
+    let targetDay = todayEntry;
+    if(!nextPrayer){
+      const todayIndex = currentMonth.days.indexOf(todayEntry);
+      const tomorrowEntry = currentMonth.days[todayIndex + 1] || (nextMonth ? nextMonth.days[0] : null);
+      if(!tomorrowEntry) return { loading: true };
+      const fajrTime = parsePrayerTime(tomorrowEntry?.timings?.Fajr);
+      if(!fajrTime) return { loading: true };
+      nextPrayer = 'Fajr';
+      minutesLeft = (24 * 60 - nowMinutes) + (fajrTime.hour * 60 + fajrTime.minute);
+      targetDay = tomorrowEntry;
+      nextDayLabel = 'besok ';
+    }
+
+    const gregorian = targetDay?.date?.gregorian;
+    const hijri = targetDay?.date?.hijri;
+
+    return {
+      loading: false,
+      clock: formatClockFromParts(nowParts),
+      nextPrayer,
+      nextPrayerLabel: prayerLabels[nextPrayer] || nextPrayer,
+      minutesLeft,
+      nextText: nextDayLabel + (prayerLabels[nextPrayer] || nextPrayer) + ' • ' + minutesToText(minutesLeft) + ' lagi',
+      metaText: gregorian && hijri
+        ? gregorian.weekday?.en + ', ' + gregorian.date + ' • ' + hijri.date + ' H'
+        : 'Jadwal aktif',
+    };
+  }
+
+  function renderPrayerWidget(){
+    const saudiNowClock = document.getElementById('saudiNowClock');
+    if(saudiNowClock){
+      saudiNowClock.textContent = formatClockFromParts(getZonedParts(new Date(), 'Asia/Riyadh'));
+    }
+
+    Object.keys(prayerCities).forEach(cityKey => {
+      const status = getPrayerStatus(cityKey);
+      const timeEl = document.getElementById('prayer-time-' + cityKey);
+      const nextEl = document.getElementById('prayer-next-' + cityKey);
+      const metaEl = document.getElementById('prayer-meta-' + cityKey);
+      if(!timeEl || !nextEl || !metaEl) return;
+
+      if(status.loading){
+        timeEl.textContent = '--:--';
+        nextEl.textContent = 'Memuat jadwal salat...';
+        metaEl.textContent = 'Waktu Saudi akan tampil setelah jadwal selesai dimuat.';
+        return;
+      }
+
+      timeEl.textContent = status.clock;
+      nextEl.innerHTML = 'Salat berikutnya: <strong>' + status.nextText + '</strong>';
+      metaEl.textContent = status.metaText;
+    });
+  }
+
+  async function initPrayerWidget(){
+    if(prayerWidgetReady) return;
+    prayerWidgetReady = true;
+    renderPrayerWidget();
+    await ensurePrayerData();
+    renderPrayerWidget();
+
+    prayerWidgetTimer = setInterval(renderPrayerWidget, 1000);
+    prayerWidgetRefreshTimer = setInterval(async () => {
+      await ensurePrayerData();
+      renderPrayerWidget();
+    }, 15 * 60 * 1000);
+  }
 
 
   // ── TALBIYAH PLAYER (HTML5 Audio — embedded) ──
