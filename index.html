@@ -204,6 +204,8 @@
   .search-wrap.visible{display:block}
 
   .cards-wrap.visible{display:flex}
+  .ziarah-wrap{display:none}
+  #page-doa.list-mode .ziarah-wrap{display:none}
 
   /* Empty state */
   .empty{text-align:center;padding:48px 24px;color:var(--text-light);font-size:14px;display:none}
@@ -407,6 +409,7 @@
   .ziarah-image{width:100%;aspect-ratio:16/10;object-fit:contain;object-position:center;border-radius:14px;border:1px solid var(--border);background:var(--bg);display:block}
   .ziarah-copy{font-size:12.5px;line-height:1.7;color:var(--text-mid);margin-top:10px}
   .ziarah-history{font-size:12px;line-height:1.7;color:var(--text-light);margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+  .ziarah-history p + p{margin-top:10px}
 
   .partner-note{position:relative;z-index:10;max-width:600px;margin:0 auto;padding:6px 16px 24px;font-size:11.5px;color:var(--text-light);text-align:center;line-height:1.6}
   @media (max-width: 520px){
@@ -776,6 +779,7 @@
 </div>
 
 <button class="back-btn" id="backBtn" onclick="goBack()">← Kembali ke menu</button>
+<div id="ziarahHost"></div>
 <div class="section-title" id="sectionTitle"></div>
 
 <div class="search-wrap" id="searchWrap">
@@ -1688,7 +1692,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/makkah/1. Peta Ziarah Makkah.png" alt="Peta Ziarah Makkah">
               <div class="ziarah-copy">Peta ini memberi gambaran rute kunjungan dari Masjidil Haram menuju titik-titik sejarah utama di sekitar Mekkah.</div>
-              <div class="ziarah-history">Secara umum, lokasi-lokasi ziarah Mekkah tersebar dari area pusat kota hingga kawasan Arafah dan Hudaibiyah. Peta membantu jamaah memahami arah, jarak, dan urutan kunjungan yang lebih nyaman.</div>
+              <div class="ziarah-history"><p>Secara umum, lokasi-lokasi ziarah Mekkah tersebar dari area pusat kota hingga kawasan yang lebih jauh seperti Arafah, Hudaibiyah, dan Thaif. Karena itu peta ini membantu jamaah memahami arah, jarak, serta urutan kunjungan yang lebih nyaman selama berada di Tanah Suci.</p><p>Dengan melihat peta, jamaah bisa membayangkan bahwa setiap titik bukan sekadar tempat wisata, tetapi jejak perjuangan dakwah Nabi Muhammad SAW. Dari tempat turunnya wahyu, lokasi hijrah, medan ujian dakwah, hingga titik-titik kemenangan Islam, semuanya membentuk kisah besar perjalanan risalah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1696,7 +1700,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/makkah/2. Jabal Nur.png" alt="Jabal Nur">
               <div class="ziarah-copy">Gunung tempat Gua Hira berada, lokasi yang sangat dikenal sebagai awal turunnya wahyu kepada Nabi Muhammad SAW.</div>
-              <div class="ziarah-history">Di Gua Hira, Malaikat Jibril menyampaikan wahyu pertama: iqra'. Karena itu Jabal Nur menjadi simbol permulaan risalah Islam dan awal cahaya petunjuk bagi umat manusia.</div>
+              <div class="ziarah-history"><p>Di Gua Hira, Nabi Muhammad SAW sering berkhalwat untuk beribadah dan menjauh dari kerusakan akhlak masyarakat Quraisy saat itu. Di tempat inilah Malaikat Jibril datang membawa wahyu pertama, memerintahkan beliau membaca: iqra', yang menjadi awal turunnya Al-Qur'an.</p><p>Karena itu Jabal Nur bukan hanya terkenal sebagai gunung biasa, melainkan simbol awal cahaya Islam menyinari dunia. Saat berziarah ke sini, jamaah diingatkan pada momen ketika Rasulullah SAW memikul amanah kenabian yang sangat besar untuk membimbing seluruh umat manusia.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1704,7 +1708,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/makkah/3. Jabal Tsur.png" alt="Jabal Tsur">
               <div class="ziarah-copy">Gunung yang menyimpan kisah hijrah Nabi SAW bersama Abu Bakar Ash-Shiddiq ketika dikejar kaum Quraisy.</div>
-              <div class="ziarah-history">Di gua inilah Nabi bersembunyi selama tiga hari. Kisah laba-laba dan burung merpati menjadi pengingat bahwa pertolongan Allah datang dengan cara yang tidak terduga.</div>
+              <div class="ziarah-history"><p>Di gua inilah Nabi SAW bersama Abu Bakar Ash-Shiddiq bersembunyi selama tiga hari ketika hijrah ke Madinah. Kaum Quraisy mengejar mereka sampai ke mulut gua, namun Allah menjaga Nabi-Nya dengan cara yang menakjubkan.</p><p>Kisah jaring laba-laba dan sarang burung merpati menjadi pengingat bahwa pertolongan Allah bisa datang lewat sebab yang tampak lemah di mata manusia. Dari Jabal Tsur, jamaah belajar tentang tawakal, persahabatan yang tulus, dan keyakinan penuh kepada penjagaan Allah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1712,7 +1716,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/makkah/4. Pemakaman Ma'la.png" alt="Pemakaman Ma'la">
               <div class="ziarah-copy">Pemakaman tua di Mekkah yang menjadi tempat dimakamkannya Siti Khadijah RA dan sejumlah keluarga Nabi.</div>
-              <div class="ziarah-history">Ma'la mengajarkan kesederhanaan makam di Tanah Suci. Jamaah datang untuk mengambil ibrah tentang kemuliaan orang saleh dan mengingat kehidupan akhirat.</div>
+              <div class="ziarah-history"><p>Pemakaman Ma'la dikenal sebagai tempat dimakamkannya Sayyidah Khadijah RA, istri tercinta Nabi SAW yang menjadi pendamping paling setia di awal dakwah. Selain itu, sejumlah keluarga Nabi dan tokoh mulia lainnya juga dimakamkan di kawasan ini.</p><p>Ma'la mengajarkan kesederhanaan makam di Tanah Suci dan mengingatkan bahwa kemuliaan seorang hamba tidak terletak pada bangunan kuburnya, tetapi pada amal, iman, dan pengorbanannya. Saat berziarah, jamaah diajak mengingat jasa orang-orang saleh dan merenungi akhir perjalanan hidup manusia.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1720,7 +1724,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/makkah/5. Masjid Jin.png" alt="Masjid Jin">
               <div class="ziarah-copy">Tempat yang masyhur dikaitkan dengan peristiwa jin mendengar bacaan Al-Qur'an lalu beriman.</div>
-              <div class="ziarah-history">Lokasi ini mengingatkan bahwa dakwah Nabi SAW dan kemukjizatan Al-Qur'an menjangkau seluruh makhluk, bukan hanya manusia.</div>
+              <div class="ziarah-history"><p>Masjid Jin masyhur dikaitkan dengan peristiwa sekelompok jin mendengar bacaan Al-Qur'an dari Nabi SAW lalu beriman. Kisah ini disebut dalam Al-Qur'an dan menunjukkan bahwa risalah Nabi tidak hanya untuk manusia, tetapi juga menjangkau makhluk lain ciptaan Allah.</p><p>Tempat ini mengingatkan jamaah pada kekuatan Al-Qur'an yang mampu melunakkan hati dan menundukkan makhluk halus sekalipun. Pelajaran terbesarnya adalah bahwa dakwah Nabi SAW bersifat universal, dan mukjizat Al-Qur'an berlaku untuk seluruh alam.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1728,7 +1732,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/makkah/6. Jabal Rahmah.png" alt="Jabal Rahmah">
               <div class="ziarah-copy">Bukit yang berada di kawasan Arafah dan sering dikaitkan dengan kisah pertemuan Nabi Adam AS dan Hawa.</div>
-              <div class="ziarah-history">Yang lebih penting bagi jamaah adalah memahami bahwa kawasan Arafah adalah tempat puncak wukuf, tempat taubat, doa, dan kasih sayang Allah tercurah luas.</div>
+              <div class="ziarah-history"><p>Jabal Rahmah sering dikaitkan dalam kisah populer sebagai tempat pertemuan kembali Nabi Adam AS dan Hawa setelah diturunkan ke bumi. Karena itu, banyak orang mengenalnya sebagai simbol pertemuan, kasih sayang, dan pengampunan dari Allah.</p><p>Namun yang lebih penting bagi jamaah adalah memahami bahwa kawasan Arafah merupakan tempat puncak wukuf dalam ibadah haji. Di sinilah manusia berdiri sebagai hamba yang lemah, memperbanyak taubat dan doa, berharap agar rahmat Allah yang luas benar-benar turun ke dalam hidupnya.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1736,7 +1740,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/makkah/7. Perjanjian Hudaibiyah.png" alt="Perjanjian Hudaibiyah">
               <div class="ziarah-copy">Lokasi kesepakatan damai antara Nabi SAW dan Quraisy yang menjadi pintu pembuka kemenangan besar Islam.</div>
-              <div class="ziarah-history">Meski secara lahir tampak berat bagi sebagian sahabat, Perjanjian Hudaibiyah justru membuka jalan bagi Fathu Makkah dan penyebaran Islam yang lebih luas.</div>
+              <div class="ziarah-history"><p>Perjanjian Hudaibiyah terjadi ketika Nabi SAW dan para sahabat tertahan untuk memasuki Mekkah saat hendak umrah. Isi perjanjian ini pada awalnya terasa berat bagi sebagian sahabat, karena tampak seperti lebih menguntungkan pihak Quraisy.</p><p>Namun justru dari sinilah Allah membuka kemenangan yang nyata. Masa damai setelah Hudaibiyah memberi ruang bagi dakwah Islam menyebar luas, hingga akhirnya menjadi salah satu jalan menuju Fathu Makkah. Tempat ini mengajarkan bahwa keputusan yang tampak sulit kadang justru menyimpan kemenangan besar di sisi Allah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1744,7 +1748,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/makkah/8. Thoif.png" alt="Thaif">
               <div class="ziarah-copy">Kota yang menyimpan kisah ujian berat dakwah Nabi SAW saat beliau ditolak dan dilempari batu.</div>
-              <div class="ziarah-history">Peristiwa Thaif mengajarkan kesabaran, kelapangan hati, dan keagungan akhlak Nabi SAW yang tetap mendoakan kebaikan untuk penduduknya, bukan membalas dendam.</div>
+              <div class="ziarah-history"><p>Thaif adalah saksi salah satu ujian dakwah paling berat yang dialami Nabi SAW. Saat datang berharap mendapatkan dukungan, beliau justru ditolak, dihina, dan dilempari batu hingga tubuh mulia beliau terluka dan berdarah.</p><p>Ketika malaikat menawarkan untuk menimpakan gunung kepada penduduk Thaif, Nabi SAW justru memilih memaafkan dan berharap keturunan mereka kelak menjadi orang-orang beriman. Dari sinilah jamaah belajar tentang sabar, kasih sayang, dan akhlak luar biasa Rasulullah SAW dalam menghadapi penolakan yang sangat menyakitkan.</p></div>
             </div>
           </details>
         </div>
@@ -1771,7 +1775,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/16. Peta Ziarah Madinah.png" alt="Peta Ziarah Madinah">
               <div class="ziarah-copy">Peta umum rute ziarah Madinah dari Masjid Nabawi menuju Quba, Qiblatain, Khandaq, dan kawasan Uhud.</div>
-              <div class="ziarah-history">Peta ini memudahkan jamaah memahami jarak dan letak lokasi penting sehingga perjalanan ziarah menjadi lebih terarah dan tidak membingungkan.</div>
+              <div class="ziarah-history"><p>Peta ziarah Madinah membantu jamaah memahami bahwa titik-titik bersejarah di kota Nabi tersebar dalam beberapa arah dari Masjid Nabawi. Dengan peta ini, perjalanan ke Quba, Uhud, Qiblatain, Khandaq, dan lokasi lain terasa lebih terarah dan tidak membingungkan.</p><p>Lebih dari sekadar penunjuk jalan, peta ini memperlihatkan bahwa Madinah adalah kota yang penuh jejak perjuangan Rasulullah SAW. Di setiap arah terdapat kisah hijrah, ibadah, ilmu, doa, pengorbanan, dan pembentukan masyarakat Islam yang agung.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1779,7 +1783,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/2. Masjid Nabawi Dulu & Kini.png" alt="Masjid Nabawi Dulu dan Kini">
               <div class="ziarah-copy">Masjid Nabawi berkembang dari bangunan sederhana menjadi kompleks masjid yang sangat luas dan megah.</div>
-              <div class="ziarah-history">Masjid ini dibangun Nabi SAW setelah hijrah. Dari tiang batang kurma dan atap sederhana, kini ia menjadi pusat ibadah umat Islam dari seluruh dunia.</div>
+              <div class="ziarah-history"><p>Masjid Nabawi dibangun oleh Nabi SAW setelah beliau tiba di Madinah. Pada awalnya bangunannya sangat sederhana, bertiang batang kurma dengan atap pelepah, namun justru dari tempat sederhana inilah peradaban Islam tumbuh dan menyebar ke seluruh dunia.</p><p>Kini Masjid Nabawi menjadi salah satu masjid terbesar dan termegah di dunia, tetapi ruh utamanya tetap sama: tempat ibadah, ilmu, persaudaraan, dan cinta kepada Rasulullah SAW. Saat memasukinya, jamaah diingatkan bahwa kebesaran Islam bermula dari kesederhanaan yang penuh berkah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1787,7 +1791,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/3. Pintu Masjid Nabawi.png" alt="Pintu Masjid Nabawi">
               <div class="ziarah-copy">Mengenali nomor dan fungsi pintu sangat membantu jamaah saat masuk, keluar, menuju Raudhah, atau titik kumpul rombongan.</div>
-              <div class="ziarah-history">Di masjid sebesar Nabawi, hafal pintu sering lebih penting daripada hafal arah. Ini menjadi bagian praktis dari pengalaman ibadah di Madinah.</div>
+              <div class="ziarah-history"><p>Di Masjid Nabawi yang sangat luas, mengenali pintu-pintu utama menjadi bagian penting dari pengalaman ibadah jamaah. Nomor dan fungsi pintu membantu jamaah menuju Raudhah, Baqi, titik kumpul, atau area masuk tertentu dengan lebih mudah.</p><p>Hal yang tampak sederhana ini sebenarnya sangat penting, terutama bagi jamaah yang datang bersama rombongan besar. Dengan memahami pintu-pintu Masjid Nabawi, jamaah bisa lebih tenang, tidak mudah terpisah, dan dapat lebih fokus beribadah tanpa kebingungan arah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1795,7 +1799,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/4. Sholat Arbain 40 Waktu.png" alt="Shalat Arbain">
               <div class="ziarah-copy">Program menjaga 40 waktu salat berjamaah di Masjid Nabawi yang populer di kalangan jamaah.</div>
-              <div class="ziarah-history">Inti amalan ini adalah disiplin menjaga salat berjamaah secara beruntun selama di Madinah, sebagai latihan konsistensi dan kecintaan kepada masjid Nabi.</div>
+              <div class="ziarah-history"><p>Shalat Arbain dikenal sebagai upaya menjaga 40 waktu salat berjamaah secara beruntun di Masjid Nabawi selama berada di Madinah. Banyak jamaah menjadikannya target ruhani agar hari-harinya di kota Nabi benar-benar dipenuhi kedisiplinan ibadah.</p><p>Nilai utamanya bukan sekadar angka empat puluh, tetapi semangat menjaga salat tepat waktu, mencintai masjid Nabi, dan melatih istiqamah. Program ini membuat jamaah belajar menyusun waktu, menahan diri dari lalai, dan memprioritaskan panggilan Allah di atas kesibukan lainnya.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1803,7 +1807,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/5. Majelis Ilmu.png" alt="Majelis Ilmu">
               <div class="ziarah-copy">Madinah bukan hanya kota ziarah, tetapi juga kota ilmu tempat banyak kajian diadakan di sekitar Masjid Nabawi.</div>
-              <div class="ziarah-history">Sejak masa Nabi SAW, Madinah adalah pusat pembinaan ilmu dan iman. Menghadiri majelis ilmu menjadi cara indah mengisi hari-hari di kota beliau.</div>
+              <div class="ziarah-history"><p>Sejak masa Nabi SAW, Madinah adalah kota ilmu, tempat Al-Qur'an diajarkan, hadits disampaikan, dan para sahabat dididik menjadi generasi terbaik umat. Di sekitar Masjid Nabawi, majelis ilmu telah menjadi bagian hidup kota ini sejak awal berdirinya masyarakat Islam.</p><p>Menghadiri kajian selama di Madinah membuat ziarah tidak berhenti pada kunjungan fisik, tetapi juga memperkaya hati dan pemahaman. Jamaah diajak meneladani semangat belajar para sahabat yang menjadikan kota Nabi sebagai taman ilmu dan taman iman.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1811,7 +1815,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/6. Makam Rosul.png" alt="Ziarah Makam Rasulullah">
               <div class="ziarah-copy">Jamaah datang untuk mengucapkan salam kepada Nabi SAW serta dua sahabat beliau, Abu Bakar RA dan Umar RA.</div>
-              <div class="ziarah-history">Dahulu area ini adalah kamar Aisyah RA. Adab terpenting saat berziarah adalah tenang, tidak mengangkat suara, dan tetap berdoa hanya kepada Allah.</div>
+              <div class="ziarah-history"><p>Area makam Rasulullah SAW dahulu merupakan kamar Aisyah RA, tempat Nabi wafat dan dimakamkan. Di tempat yang sama juga dimakamkan Abu Bakar Ash-Shiddiq RA dan Umar bin Khattab RA, dua sahabat terdekat beliau.</p><p>Saat berziarah, jamaah datang untuk mengucapkan salam dengan penuh hormat dan cinta. Adab terpenting adalah tenang, tidak berdesakan, tidak mengangkat suara, dan tetap mengarahkan doa hanya kepada Allah, sambil menghadirkan rasa syukur atas nikmat diutusnya Rasulullah SAW.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1819,7 +1823,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/7. Raudhah.png" alt="Raudhah">
               <div class="ziarah-copy">Area antara rumah Nabi dan mimbar beliau yang disebut sebagai taman dari taman-taman surga.</div>
-              <div class="ziarah-history">Kini akses ke Raudhah biasanya diatur melalui aplikasi dan jadwal tertentu. Jamaah perlu mengikuti aturan dengan tertib dan menjaga adab saat masuk.</div>
+              <div class="ziarah-history"><p>Raudhah adalah area mulia antara rumah Nabi dan mimbar beliau yang disebut sebagai taman dari taman-taman surga. Karena kemuliaannya, banyak jamaah sangat merindukan kesempatan untuk salat dan berdoa di tempat ini.</p><p>Pada masa sekarang, akses ke Raudhah biasanya diatur melalui aplikasi dan jadwal tertentu agar kunjungan lebih tertib. Saat berhasil masuk, jamaah diingatkan untuk menjaga adab, tidak terburu-buru, dan mengisi momen singkat itu dengan doa-doa terbaik kepada Allah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1827,7 +1831,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/19. Masjid Quba.png" alt="Masjid Quba">
               <div class="ziarah-copy">Masjid pertama yang dibangun Nabi SAW saat hijrah dan dikenal sebagai masjid yang dibangun di atas takwa.</div>
-              <div class="ziarah-history">Quba menjadi simbol awal hijrah dan awal penegakan masyarakat Islam di Madinah. Jamaah biasa berkunjung untuk salat dua rakaat di sana.</div>
+              <div class="ziarah-history"><p>Masjid Quba adalah masjid pertama yang dibangun Nabi SAW ketika tiba di kawasan Madinah saat hijrah. Di tempat ini, Rasulullah SAW ikut meletakkan batu dan terlibat langsung dalam pembangunannya, sehingga ia menjadi simbol awal tegaknya masyarakat Islam di kota Nabi.</p><p>Quba juga dikenal sebagai masjid yang dibangun di atas dasar takwa. Jamaah yang berkunjung biasanya melaksanakan salat dua rakaat sebagai bentuk meneladani sunnah Rasulullah SAW serta mengingat kembali semangat hijrah, ketakwaan, dan pengorbanan awal kaum Muslimin.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1835,7 +1839,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/9. Jabal Uhud.png" alt="Jabal Uhud">
               <div class="ziarah-copy">Gunung yang dicintai Nabi SAW dan menjadi saksi peristiwa besar Perang Uhud.</div>
-              <div class="ziarah-history">Uhud mengingatkan jamaah pada kecintaan Nabi terhadap tempat ini, juga pada besarnya pengorbanan para sahabat dalam membela Islam.</div>
+              <div class="ziarah-history"><p>Jabal Uhud bukan hanya gunung yang menjadi latar Perang Uhud, tetapi juga gunung yang disebut Nabi SAW sebagai gunung yang mencintai beliau dan dicintai oleh beliau. Karena itu, Uhud memiliki kedudukan khusus dalam hati kaum Muslimin.</p><p>Saat berziarah ke sini, jamaah tidak hanya melihat bentang alam, tetapi juga mengingat keberanian para sahabat dalam membela Islam. Gunung ini menjadi saksi bahwa cinta kepada Rasulullah SAW dibuktikan dengan pengorbanan, kesetiaan, dan keteguhan di medan ujian.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1843,7 +1847,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/17. Ziarah Uhud.png" alt="Ziarah Uhud">
               <div class="ziarah-copy">Kawasan ini mengingatkan pada kisah Perang Uhud, Jabal Rumat, dan makam para syuhada yang gugur di jalan Allah.</div>
-              <div class="ziarah-history">Di sinilah jamaah mengenang ujian besar yang dialami kaum Muslimin, termasuk pentingnya taat kepada Rasul dan tidak tergoda oleh harta rampasan.</div>
+              <div class="ziarah-history"><p>Kawasan ziarah Uhud mengingatkan jamaah pada peristiwa besar ketika pasukan Muslim sempat meraih keunggulan, lalu keadaan berbalik karena sebagian pemanah meninggalkan posnya. Peristiwa ini menjadi salah satu pelajaran militer dan spiritual paling kuat dalam sejarah Islam.</p><p>Di tempat ini jamaah belajar bahwa ketaatan kepada Rasulullah SAW harus dijaga dalam keadaan apa pun. Godaan dunia yang tampak kecil bisa berakibat sangat besar, sedangkan kesabaran dan disiplin adalah bagian dari kemenangan sejati.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1851,7 +1855,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/18. Jabal Uhud dan Makam Syuhada.png" alt="Jabal Uhud dan Makam Syuhada">
               <div class="ziarah-copy">Ringkasan visual kawasan Uhud, bukit pemanah, dan makam para syuhada, termasuk Sayyidina Hamzah RA.</div>
-              <div class="ziarah-history">Area ini adalah pelajaran hidup tentang keberanian, ketaatan, dan harga mahal dari sebuah kelalaian dalam menaati perintah Nabi SAW.</div>
+              <div class="ziarah-history"><p>Jabal Uhud, Bukit Pemanah, dan makam para syuhada adalah satu rangkaian kisah yang tidak terpisahkan. Di sinilah terlihat dengan nyata bagaimana perjuangan, strategi, ketaatan, dan pengorbanan saling berkaitan dalam sebuah peperangan besar.</p><p>Area ini menjadi pelajaran hidup tentang keberanian para sahabat, kesetiaan mereka kepada Rasulullah SAW, serta harga mahal dari sebuah kelalaian terhadap perintah beliau. Karena itu, ziarah ke kawasan Uhud sering meninggalkan kesan yang sangat kuat di hati jamaah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1859,7 +1863,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/10. Pemakaman Baqi.png" alt="Pemakaman Baqi">
               <div class="ziarah-copy">Pemakaman mulia di sisi Masjid Nabawi yang menjadi tempat peristirahatan banyak sahabat, keluarga Nabi, dan orang saleh.</div>
-              <div class="ziarah-history">Baqi mengajarkan kesederhanaan makam di Madinah dan mengingatkan jamaah pada akhirat serta pentingnya mendoakan kaum Muslimin yang telah wafat.</div>
+              <div class="ziarah-history"><p>Pemakaman Baqi berada sangat dekat dengan Masjid Nabawi dan menjadi tempat dimakamkannya banyak sahabat, keluarga Nabi, dan orang-orang saleh. Di sinilah jamaah melihat bagaimana kesederhanaan tetap menyertai orang-orang mulia yang pernah hidup bersama Rasulullah SAW.</p><p>Ziarah ke Baqi menjadi pengingat bahwa seagung apa pun seseorang di dunia, akhirnya ia kembali ke tanah dan menunggu rahmat Allah. Karena itu, Baqi mengajak jamaah untuk mendoakan kaum Muslimin yang telah wafat sekaligus merenungi akhir perjalanan hidupnya sendiri.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1867,7 +1871,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/12. Masjid Ghamamah.png" alt="Masjid Ghamamah">
               <div class="ziarah-copy">Masjid yang dikenal dengan kisah Nabi SAW melaksanakan salat Id dan doa istisqa di kawasan ini.</div>
-              <div class="ziarah-history">Nama Ghamamah berarti awan. Tempat ini mengingatkan pada kisah doa Nabi yang dinaungi awan, dan jejak musalla lapangan di masa beliau.</div>
+              <div class="ziarah-history"><p>Masjid Ghamamah terkenal dengan kisah Nabi SAW melaksanakan salat Id dan doa istisqa di kawasan ini. Nama Ghamamah berarti awan, mengingat kisah turunnya awan yang menaungi sebagai salah satu tanda pertolongan dan rahmat Allah.</p><p>Tempat ini mengingatkan jamaah pada suasana musalla lapangan di masa Nabi, ketika ibadah dilakukan dengan penuh kesederhanaan namun sangat hidup secara ruhani. Dari sini jamaah belajar bahwa keagungan ibadah tidak bergantung pada kemewahan tempat, tetapi pada keikhlasan hati.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1875,7 +1879,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/13. Masjid Al-Ijabah.png" alt="Masjid Al-Ijabah">
               <div class="ziarah-copy">Masjid yang populer dengan kisah tiga doa Nabi SAW: dua dikabulkan dan satu tidak.</div>
-              <div class="ziarah-history">Dari kisah ini jamaah belajar bahwa Allah mengabulkan banyak doa kebaikan untuk umat, namun perpecahan dan permusuhan internal tetap menjadi ujian besar.</div>
+              <div class="ziarah-history"><p>Masjid Al-Ijabah dikenal dengan kisah tiga doa Nabi SAW untuk umatnya: dua dikabulkan dan satu tidak. Beliau berdoa agar umat tidak dibinasakan karena kelaparan dan banjir besar, lalu berdoa pula agar mereka tidak saling bermusuhan, namun doa terakhir itu tidak dikabulkan secara mutlak.</p><p>Dari kisah ini jamaah belajar bahwa rahmat Allah sangat luas bagi umat Nabi Muhammad SAW, tetapi perpecahan internal tetap menjadi ujian besar sepanjang zaman. Tempat ini mengajak kita untuk menjaga persaudaraan, menghindari permusuhan, dan memohon keselamatan umat dengan sungguh-sungguh.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1883,7 +1887,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/14. Masjid Jumu'ah.png" alt="Masjid Jumu'ah">
               <div class="ziarah-copy">Lokasi yang dikaitkan dengan pelaksanaan salat Jumat pertama Nabi SAW saat perjalanan hijrah.</div>
-              <div class="ziarah-history">Masjid ini menjadi penanda lahirnya salah satu syiar besar Islam di Madinah, yaitu salat Jumat berjamaah yang kemudian menjadi rutin bagi umat Islam.</div>
+              <div class="ziarah-history"><p>Masjid Jumu'ah dikaitkan dengan tempat Rasulullah SAW melaksanakan salat Jumat pertama setelah hijrah menuju Madinah. Peristiwa ini menjadi tonggak penting karena menunjukkan mulai tegaknya syiar Islam secara terbuka di lingkungan masyarakat baru.</p><p>Tempat ini mengingatkan jamaah bahwa hijrah Nabi bukan sekadar perpindahan tempat, melainkan awal pembentukan peradaban Islam yang hidup. Salat Jumat pertama itu menjadi simbol persatuan umat, kepemimpinan Rasulullah SAW, dan kuatnya ikatan kaum Muslimin di Madinah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1891,7 +1895,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/20. Masjid Khandaq.png" alt="Masjid Khandaq">
               <div class="ziarah-copy">Kawasan yang berkaitan dengan Perang Khandaq dan strategi parit Salman Al-Farisi yang menyelamatkan Madinah.</div>
-              <div class="ziarah-history">Di area ini Nabi SAW berdoa memohon pertolongan Allah saat pasukan Ahzab mengepung Madinah. Perang Khandaq menjadi simbol kecerdasan strategi dan tawakal.</div>
+              <div class="ziarah-history"><p>Masjid Khandaq berada di kawasan yang berkaitan dengan Perang Ahzab, ketika Madinah dikepung pasukan besar musuh. Atas usulan Salman Al-Farisi, kaum Muslimin menggali parit, strategi yang belum dikenal luas di Arab saat itu.</p><p>Di area inilah Nabi SAW berdoa dengan sungguh-sungguh memohon pertolongan Allah, hingga kemudian datang bantuan-Nya yang menggagalkan pengepungan musuh. Tempat ini mengajarkan bahwa strategi yang cerdas harus berjalan bersama doa, kesabaran, dan tawakal yang kuat.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1899,7 +1903,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/21. Masjid Tujuh  Khandaq.png" alt="Masjid Tujuh Khandaq">
               <div class="ziarah-copy">Sekelompok masjid kecil di kawasan Khandaq yang sering menjadi bagian dari rute ziarah sejarah di Madinah.</div>
-              <div class="ziarah-history">Lokasi ini mengingatkan pada suasana pertahanan Madinah dalam Perang Khandaq serta jejak perjuangan para sahabat bersama Nabi SAW.</div>
+              <div class="ziarah-history"><p>Masjid Tujuh adalah sekelompok masjid kecil di kawasan Khandaq yang sering dikaitkan dengan titik-titik pertahanan dan ibadah para sahabat saat menghadapi ancaman pasukan Ahzab. Meski bentuk yang sekarang berbeda dari masa lampau, kawasan ini tetap menyimpan nuansa sejarah yang kuat.</p><p>Saat berada di sini, jamaah diajak membayangkan betapa beratnya situasi yang dihadapi kaum Muslimin ketika Madinah berada dalam ancaman besar. Tempat ini menjadi pengingat bahwa kemenangan tidak lahir dari kenyamanan, melainkan dari perjuangan, kebersamaan, dan kesetiaan kepada Nabi SAW.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1907,7 +1911,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/22. Masjid Qiblatain.png" alt="Masjid Qiblatain">
               <div class="ziarah-copy">Masjid bersejarah tempat perubahan arah kiblat dari Baitul Maqdis ke Ka'bah.</div>
-              <div class="ziarah-history">Peristiwa ini menunjukkan ketaatan penuh para sahabat terhadap wahyu. Dalam satu salat, arah kiblat berpindah mengikuti perintah Allah.</div>
+              <div class="ziarah-history"><p>Masjid Qiblatain dikenal sebagai lokasi bersejarah perubahan arah kiblat dari Baitul Maqdis ke Ka'bah. Dalam sebuah salat, para sahabat langsung berputar mengikuti perintah Allah yang turun melalui Nabi SAW.</p><p>Peristiwa ini menunjukkan tingkat ketaatan yang luar biasa dari Rasulullah SAW dan para sahabat terhadap wahyu. Saat berziarah ke sini, jamaah diingatkan bahwa seorang mukmin sejati harus siap mengubah arah hidupnya begitu datang petunjuk dari Allah.</p></div>
             </div>
           </details>
           <details class="ziarah-place">
@@ -1915,7 +1919,7 @@
             <div class="ziarah-place-body">
               <img class="ziarah-image" src="assets/images/ziarah/madinah/15. King Fahd Complex.png" alt="King Fahd Complex">
               <div class="ziarah-copy">Kompleks percetakan Al-Qur'an terbesar di Madinah yang terkenal dengan produksi Mushaf Madinah.</div>
-              <div class="ziarah-history">Tempat ini memperlihatkan bagaimana mushaf dicetak, diperiksa, dan disebarkan ke seluruh dunia dengan ketelitian yang sangat tinggi.</div>
+              <div class="ziarah-history"><p>King Fahd Complex adalah salah satu pusat percetakan Al-Qur'an terbesar di dunia. Di tempat ini, Mushaf Madinah yang sangat dikenal umat Islam diproduksi dengan proses yang rapi, teratur, dan penuh ketelitian.</p><p>Kunjungan ke sini mengingatkan jamaah bahwa penjagaan Al-Qur'an tidak hanya terjadi melalui hafalan para huffaz, tetapi juga melalui kerja besar umat dalam mencetak, memeriksa, dan menyebarkannya ke seluruh dunia. Ini menjadi bukti bahwa Allah menjaga kitab-Nya melalui banyak jalan.</p></div>
             </div>
           </details>
         </div>
@@ -3222,6 +3226,14 @@
     if(!isOpen)card.classList.add('open');
   }
 
+  function syncZiarahVisibility(){
+    const ziarahWrap = document.querySelector('#ziarahHost .ziarah-wrap') || document.querySelector('.ziarah-wrap');
+    const doaPage = document.getElementById('page-doa');
+    if(!ziarahWrap || !doaPage) return;
+    const shouldShow = doaPage.classList.contains('active') && !doaPage.classList.contains('list-mode');
+    ziarahWrap.style.display = shouldShow ? 'block' : 'none';
+  }
+
   // Select category — show list view
   function selectCat(cat, label, btn){
     currentCat = cat;
@@ -3236,6 +3248,7 @@
     document.getElementById('cardsWrap').classList.add('visible');
     document.getElementById('searchInput').value = '';
 
+    syncZiarahVisibility();
     applyFilter();
     window.scrollTo({top:0, behavior:'smooth'});
   }
@@ -3250,6 +3263,7 @@
     document.getElementById('searchWrap').classList.remove('visible');
     document.getElementById('cardsWrap').classList.remove('visible');
     document.querySelectorAll('.doa-card.open').forEach(c=>c.classList.remove('open'));
+    syncZiarahVisibility();
     window.scrollTo({top:0, behavior:'smooth'});
   }
 
@@ -3295,6 +3309,7 @@
       document.getElementById('cardsWrap').classList.remove('visible');
       document.querySelectorAll('.doa-card.open').forEach(c=>c.classList.remove('open'));
     }
+    syncZiarahVisibility();
     window.scrollTo({top:0,behavior:'smooth'});
   }
 
@@ -3359,10 +3374,23 @@
 
   const QURAN_LAST_KEY = 'labbaik_quran_last_read_v1';
 
+  function normalizeQuranUrl(url){
+    const raw = String(url || '').trim();
+    if(!raw) return '';
+    if(raw.includes('quran.com/id/')) return raw;
+    if(raw.includes('quran.com/en/')) return raw.replace('quran.com/en/', 'quran.com/id/');
+    if(raw.includes('quran.com/juz/')) return raw.replace('quran.com/juz/', 'quran.com/id/juz/');
+    if(raw.includes('quran.com/')){
+      return raw.replace('quran.com/', 'quran.com/id/');
+    }
+    return raw;
+  }
+
   function saveQuranTarget(url, label){
+    const normalizedUrl = normalizeQuranUrl(url);
     try{
       localStorage.setItem(QURAN_LAST_KEY, JSON.stringify({
-        url: url,
+        url: normalizedUrl,
         label: label || 'Bacaan terakhir',
         savedAt: Date.now(),
       }));
@@ -3380,7 +3408,7 @@
       alert('Isi nomor surah dan ayat dulu ya.');
       return;
     }
-    const url = 'https://quran.com/id/' + surah + ':' + ayat;
+    const url = 'https://quran.com/id/' + surah + ':' + ayat + '?locale=id';
     saveQuranTarget(url, 'QS ' + surah + ':' + ayat);
   }
 
@@ -3409,9 +3437,14 @@
     let saved = null;
     try{ saved = JSON.parse(localStorage.getItem(QURAN_LAST_KEY)||'null'); }catch(e){}
     if(saved && saved.url){
+      const normalizedUrl = normalizeQuranUrl(saved.url);
+      if(normalizedUrl !== saved.url){
+        saved.url = normalizedUrl;
+        try{ localStorage.setItem(QURAN_LAST_KEY, JSON.stringify(saved)); }catch(e){}
+      }
       title.textContent = saved.label || 'Bacaan terakhir';
       sub.textContent = 'Tap untuk lanjut ke bacaan yang terakhir kamu buka.';
-      btn.href = saved.url;
+      btn.href = normalizedUrl;
       btn.style.display = 'inline-block';
       btn.textContent = 'Lanjutkan';
     }else{
@@ -3427,7 +3460,7 @@
     if(!grid) return;
     const juzItems = Array.from({length: 30}, (_, index) => index + 1);
     grid.innerHTML = juzItems.map(num => (
-      '<a class="juz-card" href="https://quran.com/id/juz/' + num + '" target="_blank" rel="noopener noreferrer" onclick="saveQuranTarget(\'https://quran.com/id/juz/' + num + '\', \'Juz ' + num + '\')">' +
+      '<a class="juz-card" href="https://quran.com/id/juz/' + num + '?locale=id" target="_blank" rel="noopener noreferrer" onclick="saveQuranTarget(\'https://quran.com/id/juz/' + num + '?locale=id\', \'Juz ' + num + '\')">' +
         '<div class="juz-number">Juz ' + num + '</div>' +
         '<div class="juz-label">Buka bacaan</div>' +
         '<div class="juz-hint">Terjemahan Indonesia</div>' +
@@ -3441,6 +3474,12 @@
     initPrayerWidget();
     renderQuranResume();
     renderJuzGrid();
+    const ziarahWrap = document.querySelector('.ziarah-wrap');
+    const ziarahHost = document.getElementById('ziarahHost');
+    if(ziarahWrap && ziarahHost && ziarahWrap.parentElement !== ziarahHost){
+      ziarahHost.appendChild(ziarahWrap);
+    }
+    syncZiarahVisibility();
     // Sync toggle button icon after DOM ready
     const isDark = document.body.classList.contains('dark-mode');
     const btn = document.getElementById('dmToggle');
