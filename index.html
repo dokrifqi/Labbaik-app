@@ -2798,12 +2798,13 @@
   });
 
   // ── Ebook PDF Viewer ──
+  const pdfBasePath = 'assets/pdfs/';
   const ebookFiles = {
-    'doa-arafah':   { title: 'Doa Arafah', file: 'Doa_arafah_20260402_135953_0000.pdf', pages: 20 },
-    'manasik':      { title: 'Manasik Jiwa — 40 Hari Belajar Tahajud', file: 'Manasik_Jiwa_Part_5_20260402_140024_0000.pdf', pages: 47 },
-    'qiyam':        { title: 'Rangkuman Doa Qiyamullail', file: 'Rangkuman_Doa_Qiyamullail_20260402_140108_0000.pdf', pages: 12 },
-    'atlas':        { title: 'Atlas Perjalanan Haji 2026 (FREE VERSION)', file: 'FREE_version__Atlas_Perjalanan_Haji_2026__CERITA_HAJI_DR_20260402_142051_0000.pdf', pages: 20 },
-    'manasik-haji': { title: 'Manasik Jiwa Berhaji — Full Preview', file: 'ManasikJiwa_Haji_20260402_141744_0000.pdf', pages: 44 },
+    'doa-arafah':   { title: 'Doa Arafah', file: pdfBasePath + 'Doa arafah_20260402_135953_0000.pdf', pages: 20 },
+    'manasik':      { title: 'Manasik Jiwa — 40 Hari Belajar Tahajud', file: pdfBasePath + 'Manasik Jiwa Part 5_20260402_140024_0000.pdf', pages: 47 },
+    'qiyam':        { title: 'Rangkuman Doa Qiyamullail', file: pdfBasePath + 'Rangkuman Doa Qiyamullail_20260402_140108_0000.pdf', pages: 12 },
+    'atlas':        { title: 'Atlas Perjalanan Haji 2026 (FREE VERSION)', file: pdfBasePath + 'FREE_version_Atlas_Perjalanan_Haji_2026_CERITA_HAJI_DR_20260402.pdf', pages: 20 },
+    'manasik-haji': { title: 'Manasik Jiwa Berhaji — Full Preview', file: pdfBasePath + 'ManasikJiwa Haji_20260402_141744_0000.pdf', pages: 44 },
   };
   let currentPage = 1;
   let currentEbook = null;
@@ -2821,17 +2822,10 @@
 
   function updatePdfFrame(){
     if(!currentEbook) return;
-    // Coba beberapa path: root-relative, same-dir, dan origin-relative
-    // Gunakan origin agar bisa diakses dari mana pun file HTML diletakkan
-    const origin = window.location.origin;
-    const pathname = window.location.pathname;
-    const dir = pathname.substring(0, pathname.lastIndexOf('/') + 1);
-
-    // Prioritas: coba root dulu (untuk Vercel/Netlify deployment di root)
-    // Jika file HTML ada di subfolder, ini akan fallback ke direktori yang sama
-    const isRoot = dir === '/' || dir === '';
-    const base = isRoot ? origin + '/' : origin + dir;
-    const url = base + currentEbook.file + '#page=' + currentPage;
+    // Resolve against the current page URL so it works for both local file://
+    // opens and hosted deployments in a subfolder.
+    const pdfUrl = new URL(encodeURI(currentEbook.file), document.baseURI).href;
+    const url = pdfUrl + '#page=' + currentPage;
 
     document.getElementById('pdfFrame').src = url;
     document.getElementById('pdfPageInfo').textContent = 'Hal ' + currentPage + ' / ' + currentEbook.pages;
