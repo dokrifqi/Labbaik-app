@@ -3784,9 +3784,22 @@
   let currentPage = 1;
   let currentEbook = null;
 
+  // Detect iOS (iPhone/iPad) — Safari cannot embed PDFs in iframes
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
   function openEbook(key){
     const eb = ebookFiles[key];
     if(!eb) return;
+
+    const pdfUrl = new URL(encodeURI(eb.file), document.baseURI).href;
+
+    // iOS Safari: cannot render PDF inside iframe — open in new tab instead
+    if(isIOS){
+      window.open(pdfUrl, '_blank');
+      return;
+    }
+
     currentEbook = eb;
     currentPage = 1;
     document.getElementById('pdfModalTitle').textContent = eb.title;
